@@ -10,14 +10,56 @@
 		<title>Bookix | Crea ya tu cuenta</title>
 	</head>
 	<body>
-		<div class="global-container">
-			<form id="formRegistro">
-				<input type="text" id="nombre" placeholder="Nombre" required />
-				<input type="email" id="email" placeholder="Email" required />
-				<input type="password" id="password" placeholder="Contraseña" required />
-				<button type="submit">Registrarse</button>
-			</form>
-			<a href="index.html">¿Ya tienes cuenta? Inicia sesión</a>
-		</div>
+		<main>
+			<div class="register-bg-container">
+				<div class="logo-container-register">
+					<img src="/media/logos/bookfix-orange-logo.png" alt="" />
+				</div>
+
+				<section>
+					<div class="register-section">
+						<form action="#" method="POST" id="form-register">
+							<h1>Crea tu cuenta en Bookix</h1>
+							<p>Por favor, introduce tus datos</p>
+
+							<div class="name-register">
+								<p>Nombre</p>
+								<input type="text" id="name" name="name" placeholder="Nombre" required />
+							</div>
+
+							<div class="email-register">
+								<p>Email</p>
+								<input type="email" id="email-register" name="email" placeholder="Email" required />
+							</div>
+
+							<div class="password-register">
+								<p>Contraseña</p>
+								<input
+									type="password"
+									name="password-register"
+									id="password-register"
+									placeholder="Contraseña"
+									required
+								/>
+							</div>
+
+							<div class="register-btn-container">
+								<button class="register-btn" type="submit">Registrarse</button>
+							</div>
+						</form>
+					</div>
+				</section>
+
+				<section>
+					<div class="register-container">
+						<div class="register-content">
+							<h2>¿Ya tienes cuenta?</h2>
+
+							<p>Haz <a href="index.html">click aquí</a> para iniciar sesión.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
 	</body>
 </html>
