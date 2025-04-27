@@ -1,67 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="src/utils/storage.js"></script>
+		<script src="src/utils/storage.js" defer></script>
+		<script src="app.js" defer></script>
 
-    <link rel="stylesheet" href="styles/index.css">
-    <title>Bookix. Tu biblioteca personal.</title>
-</head>
-<body>
-    <div class="global-container">
-        <header>
-            <div class="logo-header-container">
-                <!-- Logotipo web -->
-                <img src="" alt="">
-            </div>
+		<link rel="stylesheet" href="styles/index.css" />
+		<title>Bookix. Tu biblioteca personal.</title>
+	</head>
 
-            <div class="form-container">
-                <form action="" class="search">
-                    <input type="search" name="books-search" id="books-search" placeholder="Buscar libro...">
-                    <button class="searchBtn">
-                    <!-- Icono buscar -->
-                        <img src="" alt="">
-                    </button>
-                </form>
-            </div>
-        </header>
-    </div>
+	<body>
+		<div class="global-container">
+			<header>
+				<div class="header-container">
+					<div class="logo-header-container">
+						<!-- Logotipo web -->
+						<img src="/media/logos/bookfix-orange-logo.png" alt="" />
+					</div>
 
-    <main>
-        <div class="main-container">
-        <!-- LOGIN -->
-        <div class="login-bg-container">
-            <div class="header-login">
-                <div class="logo-container">
-                    <!-- Imagen logo -->
-                    <img src="" alt="">
-                </div>
-            </div>
+					<div class="form-container">
+						<form action="" class="search">
+							<input type="search" name="books-search" id="books-search" placeholder="Buscar libro..." />
+							<button class="search-btn icon-style">
+								<img src="/media/icons/search-icon.png" alt="Buscar" />
+							</button>
+						</form>
 
-            <section>
-                <div class="login-section">
-                    <form action="#" method="POST" class="user">
-                        <h1>Iniciar sesión</h1>
+						<div class="favs-books-container">
+							<span class="books-on-favs">0</span>
+							<div class="icon-favs">
+								<img src="/media/icons/fav-books-orange.png" alt="" />
+							</div>
+						</div>
 
-                        <p>Email</p>
-                        <input id="login-email" class="login-email" type="email" name="email" placeholder="Introduce tu email">
-                    
-                        <p>Contraseña</p>
-                        <div class="continue-btn-container">
-                            <input id="password" class="password" type="password" name="password" placeholder="Introduce tu contraseña">
-                            <button class="continue-btn">Continuar</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+						<div class="pending-books-container">
+							<span class="pending-books">0</span>
+							<div class="icon-pending">
+								<img src="/media/icons/pending-book-orange.png" alt="" />
+							</div>
+						</div>
 
-            <section>
-                
-            </section>
-        </div>
-        </div>
-    </main>
-</body>
+						<div class="reads-books-container">
+							<span class="reads-book">0</span>
+							<div class="icon-reads">
+								<img src="/media/icons/book-check-orange.png" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+
+		<main>
+			<div class="main-container">
+				<!-- LOGIN -->
+				<div class="login-bg-container">
+					<div class="logo-container">
+						<!-- Imagen logo -->
+						<img src="/media/logos/bookfix-orange-logo.png" alt="" />
+					</div>
+
+					<div class="login-section">
+						<form action="#" method="POST" class="user-content">
+							<h1>Iniciar sesión</h1>
+
+							<div class="email-content">
+								<p>Email</p>
+								<input
+									id="login-email"
+									class="login-email"
+									type="email"
+									name="email"
+									placeholder="Introduce tu email"
+								/>
+							</div>
+
+							<div class="password-content">
+								<p>Contraseña</p>
+								<input
+									id="password"
+									class="password"
+									type="password"
+									name="password"
+									placeholder="Introduce tu contraseña"
+								/>
+							</div>
+
+							<div class="continue-btn-container">
+								<button class="continue-btn">Iniciar sesión</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="register-container">
+						<div class="register-content">
+							<h2>¿No tienes cuenta?</h2>
+
+							<p>Haz <a href="#">click aquí</a> crear una nueva cuenta.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--CATEGORIES-->
+			<!-- <section class="categories">
+						<nav>
+							<div class="categories-container">
+								<button class="ficcion-btn open-all-books">Ficción</button>
+								<button class="fantasy-btn">Fantasía</button>
+								<button class="romance-btn">Romance</button>
+								<button class="terror-btn">Terror</button>
+								<button class="self-help-btn">Autoayuda</button>
+								<button class="history-btn">Historia</button>
+								<button class="cook-btn">Cocina</button>
+							</div>
+						</nav>
+					</section> -->
+
+			<!-- BOOK'S SECTION -->
+			<!-- <section class="books-section container">
+						<h3 class="category-title">LIBROS</h3>
+						<div class="title-catalog-container"></div>
+						<div class="books-container"></div>
+					</section> -->
+
+			<!-- FAVS SECTION -->
+			<!-- <section class="fav-container container dont-show"></section> -->
+
+			<!-- READ SECTION -->
+			<!-- <section class="reads-container container dont-show"></section> -->
+
+			<!-- PENDING BOOKS -->
+			<!-- <section class="pending-container container dont-show"></section> -->
+		</main>
+
+		<footer>
+			<section>
+				<div class="footer-links">
+					<a href="">Ficción</a>
+					<a href="">Fantasía</a>
+					<a href="">Romance</a>
+					<a href="">Terror</a>
+					<a href="">Autoayuda</a>
+					<a href="">Historia</a>
+					<a href="">Cocina</a>
+				</div>
+			</section>
+		</footer>
+	</body>
 </html>

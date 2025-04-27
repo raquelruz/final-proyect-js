@@ -1,0 +1,316 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	font-family: "Roboto", "Poppins", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html,
+body {
+	height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* CSS Global para estilos */
+
+ul {
+	list-style-type: none;
+}
+
+/* A partir de aquí introduce tus estilos
+(estos estilos aplican desde Mobile en adelante hasta  que se sobreescriban en alguna media query) */
+
+:root {
+	--primary-text-color: #000;
+	--secondary-text-color: #ffffff;
+	--contrast-color: #5c374c;
+	--secondary-contrast-color: #232f3e;
+	--light-gray: #e7e7e7;
+	--primary-color-btn: #faa275;
+
+	--font-size-html: 14px;
+
+	--spacing-xs: 4px;
+	--spacing-s: 8px;
+	--spacing-m: 12px;
+	--spacing-l: 16px;
+	--spacing-xl: 24px;
+	--spacing-2xl: 36px;
+	--spacing-3xl: 48px;
+
+	--radius-card: 4px;
+	--radius-button: 16px;
+
+	--container-width: 95%;
+}
+
+/* ----------------ESTILOS GLOBALES HTML----------- */
+html {
+	font-size: var(--font-size-html);
+	margin-top: var(pad);
+}
+
+h1 {
+	font-size: 1.5rem;
+}
+
+h2 {
+	font-size: 1.4rem;
+}
+
+h3 {
+	font-size: 1.3rem;
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+h5 {
+	font-size: 1.1rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+p,
+a,
+span,
+input,
+button {
+	font-size: 1rem;
+}
+
+small {
+	font-size: 0.7rem;
+}
+
+img {
+	width: 100%;
+}
+
+body .dont-show {
+	display: none;
+}
+
+.body-container {
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+}
+
+.container {
+	width: var(--container-width);
+	margin: 0 auto;
+}
+
+.btn-style {
+	padding: var(--spacing-s);
+	border: none;
+	border-radius: var(--radius-button);
+}
+
+/*---------------- STYLES ----------------*/
+/* .global-container {
+	padding: 8px 10px;
+} */
+
+.header-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--contrast-color);
+}
+
+.logo-header-container {
+	width: 30%;
+}
+
+.logo-header-container img {
+	width: 100%;
+}
+
+.icon-style {
+	width: 10%;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: row;
+
+	width: 100%;
+	padding: var(--spacing-m);
+}
+
+.form-container input {
+	width: 100%;
+	padding: var(--spacing-s);
+	border-radius: var(--radius-card);
+}
+
+.form-container form {
+	width: 100%;
+	
+	display: flex;
+}
+
+.search-btn {
+	border-radius: var(--radius-card);
+
+	background-color: var(--primary-color-btn);
+}
+
+.favs-books-container,
+.pending-books-container,
+.reads-books-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	width: 20%;
+	gap: var(--spacing-xs);
+}
+
+.books-on-favs,
+.pending-books,
+.reads-book {
+	color: var(--primary-color-btn)
+}
+
+.icon-favs,
+.icon-pending,
+.icon-reads {
+	width: 50%;
+}
+
+/*-------------- LOGIN -------------- */
+.login-bg-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-s);
+
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	padding: var(--spacing-m);
+	background-color: var(--contrast-color);
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 40%;
+}
+
+.login-section {
+	background-color: #e7e7e7;
+	border-radius: var(--radius-card);
+	padding: var(--spacing-xl);
+
+	width: 50%;
+}
+
+.login-section input {
+	border: 1px solid #e1e1e1;
+	border-radius: var(--radius-card);
+	padding: 10px 4px;
+
+	width: 100%;
+}
+
+.login-section h1 {
+	font-size: 24px;
+	text-align: center;
+}
+
+.login-section p {
+	font-size: 16px;
+	padding: 8px 0;
+}
+
+.email-content,
+.password-content {
+	padding: 10px 0;
+}
+
+.continue-btn-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	padding: var(--spacing-m);
+}
+
+.continue-btn-container button {
+	padding: var(--spacing-s);
+
+	border: none;
+	border-radius: var(--radius-button);
+
+	background-color: var(--primary-color-btn);
+	color:rgb(83, 50, 33)5;
+}
+
+.register-container {
+	text-align: center;
+	color: #FFFFFF;
+
+	padding: var(--spacing-xl);
+}
+
+.register-container a {
+	color: var(--primary-color-btn)
+}
+
+.register-container a:hover {
+	color: #703b21;
+}
