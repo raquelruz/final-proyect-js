@@ -4,8 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<script src="src/utils/storage.js" defer></script>
-		<script src="app.js" defer></script>
+		<script src="app.js" type="module" defer></script>
+		<!-- <script src="src/components/api.js" defer></script> -->
 
 		<link rel="stylesheet" href="styles/index.css" />
 		<title>Bookix. Tu biblioteca personal.</title>
@@ -16,14 +16,13 @@
 			<header>
 				<div class="header-container">
 					<div class="logo-header-container">
-						<!-- Logotipo web -->
 						<img src="/media/logos/bookfix-orange-logo.png" alt="" />
 					</div>
 
 					<div class="form-container">
 						<form action="" class="search">
 							<input type="search" name="books-search" id="books-search" placeholder="Buscar libro..." />
-							<button class="search-btn icon-style">
+							<button id="search-btn" class="search-btn icon-style">
 								<img src="/media/icons/search-icon.png" alt="Buscar" />
 							</button>
 						</form>
@@ -56,9 +55,8 @@
 		<main>
 			<div class="main-container">
 				<!-- LOGIN -->
-				<div class="login-bg-container">
+				<!-- <div class="login-bg-container">
 					<div class="logo-container">
-						<!-- Imagen logo -->
 						<img src="/media/logos/bookfix-orange-logo.png" alt="" />
 					</div>
 
@@ -105,11 +103,11 @@
 							</div>
 						</div>
 					</section>
-				</div>
+				</div> -->
 			</div>
 
 			<!--CATEGORIES-->
-			<!-- <section class="categories">
+			<section class="categories">
 						<nav>
 							<div class="categories-container">
 								<button class="ficcion-btn open-all-books">Ficción</button>
@@ -121,7 +119,11 @@
 								<button class="cook-btn">Cocina</button>
 							</div>
 						</nav>
-					</section> -->
+					</section>
+
+			<section>
+				<div id="container"></div>
+			</section>
 
 			<!-- BOOK'S SECTION -->
 			<!-- <section class="books-section container">
@@ -140,7 +142,7 @@
 			<!-- <section class="pending-container container dont-show"></section> -->
 		</main>
 
-		<footer>
+		<!-- <footer>
 			<section>
 				<div class="footer-links">
 					<a href="">Ficción</a>
@@ -152,6 +154,6 @@
 					<a href="">Cocina</a>
 				</div>
 			</section>
-		</footer>
+		</footer> -->
 	</body>
 </html>
