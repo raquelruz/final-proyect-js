@@ -9,7 +9,7 @@ export const getDataFromApi = async (query) => {
         const data = await response.json();
         console.log("Datos obtenidos:", data);
 
-        const container = document.getElementById("container");
+        const container = document.getElementById("books-container");
 
         data.docs.slice(0, 10).forEach(book => {
             const title = book.title || "Título no disponible";
