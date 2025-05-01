@@ -175,7 +175,7 @@ body .dont-show {
 	width: 10%;
 }
 
-.form-container {
+.search-container {
 	display: flex;
 	flex-direction: row;
 
@@ -183,13 +183,13 @@ body .dont-show {
 	padding: var(--spacing-m);
 }
 
-.form-container input {
+.search-container input {
 	width: 100%;
 	padding: var(--spacing-s);
 	border-radius: var(--radius-card);
 }
 
-.form-container form {
+.search-container form {
 	width: 100%;
 	
 	display: flex;
