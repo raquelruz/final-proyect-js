@@ -202,30 +202,73 @@ body .dont-show {
 }
 
 .favs-books-container,
-.pending-books-container,
-.reads-books-container {
+.reads-books-container,
+.user-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 
-	width: 20%;
+	width: 30%;
 	gap: var(--spacing-xs);
 }
 
+.favs-books-container,
+.reads-books-container {
+	color: var(--primary-color-btn);
+
+	text-align: center;
+}
+
 .books-on-favs,
-.pending-books,
-.reads-book {
-	color: var(--primary-color-btn)
+.reads-book,
+.user-login {
+	color: var(--primary-color-btn);
 }
 
 .icon-favs,
 .icon-pending,
-.icon-reads {
+.icon-reads,
+.icon-user {
 	width: 50%;
 }
 
+.favs-content,
+.reads-content,
+.user-content {
+	display: flex;
+	flex-direction: column;
+
+	color: var(--primary-color-btn);
+
+	gap: 10px;
+}
+
+#user-logout {
+	background-color: var(--primary-color-btn);
+
+	border-radius: var(--radius-button);
+}
+
 /*-------------- LOGIN & REGISTER -------------- */
+.logout-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	background-color: var(--contrast-color);
+}
+
+#email-session {
+	color: var(--primary-color-btn);
+	font-size: 10px;
+}
+
+#logout-btn { 
+	background-color: var(--primary-color-btn);
+	border-radius: 4px;
+}
+
 .login-bg-container {
 	display: flex;
 	flex-direction: column;
