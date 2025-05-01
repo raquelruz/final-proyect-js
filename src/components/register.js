@@ -1,4 +1,4 @@
-import { registerUser } from "./auth.js"; // Importar desde la misma carpeta
+import { registerUser } from "./auth.js"; 
 
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("JavaScript funcionando y DOM cargado");
