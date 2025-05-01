@@ -239,7 +239,7 @@ body .dont-show {
 	display: flex;
 	flex-direction: column;
 
-	color: var(--primary-color-btn);
+	/* color: var(--primary-color-btn); */
 
 	gap: 10px;
 }
