@@ -8,22 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 	if (currentUser) {
+		// Insertar saludo y botón de cerrar sesión
 		const header = document.createElement("div");
-		header.classList.add("logout-container")
+		header.classList.add("logout-container");
 
 		header.innerHTML = `
-			<p id="email-session">¡Hola ${currentUser.nombre}!</p>
 			<button id="logout-btn">Cerrar sesión</button>
 		`;
 		document.body.prepend(header);
 
-		document.getElementById("user-logout").addEventListener("click", () => {
+		// Agregar evento al botón de cerrar sesión
+		document.getElementById("logout-btn").addEventListener("click", () => {
 			localStorage.removeItem("currentUser");
 			window.location.href = "login.html";
 		});
 	} else {
+		// Redirige si no hay sesión iniciada
 		window.location.href = "login.html";
-		return;
+		return; // Detiene el resto del código
 	}
 
 	// Búsqueda de libros
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (query) {
 				const books = await getDataFromApi(query);
 
-				searchContainer.innerHTML = ""; 
+				searchContainer.innerHTML = ""; // Limpiar resultados anteriores
 
 				renderBooks(books, searchContainer);
 			}

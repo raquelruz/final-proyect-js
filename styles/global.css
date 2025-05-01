@@ -254,14 +254,9 @@ body .dont-show {
 .logout-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: end;
 
 	background-color: var(--contrast-color);
-}
-
-#email-session {
-	color: var(--primary-color-btn);
-	font-size: 10px;
 }
 
 #logout-btn { 
