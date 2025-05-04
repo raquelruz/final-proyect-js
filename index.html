@@ -5,97 +5,71 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<script src="app.js" type="module" defer></script>
-		<!-- <script src="src/components/api.js" defer></script> -->
 
 		<link rel="stylesheet" href="styles/index.css" />
 		<title>Bookix. Tu biblioteca personal.</title>
 	</head>
 
 	<body>
-		<div class="global-container">
-			<header>
-				<div class="header-container">
-					<div class="logo-header-container">
-						<img src="/media/logos/bookfix-orange-logo.png" alt="" />
-					</div>
-
-					<div class="search-container">
-						<form action="" class="search">
-							<input type="search" name="books-search" id="books-search" placeholder="Buscar libro..." />
-							<button id="search-btn" class="search-btn icon-style">
-								<img src="/media/icons/search-icon.png" alt="Buscar" />
-							</button>
-						</form>
-
-						<div class="favs-books-container">
-							<div class="icon-favs">
-								<img src="/media/icons/fav-books-orange.png" alt="" />
-							</div>
-
-							<div class="favs-content">
-								<span class="books-on-favs">0</span>
-							</div>
-						</div>
-
-						<div class="reads-books-container">
-							<div class="icon-reads">
-								<img src="/media/icons/book-check-orange.png" alt="" />
-							</div>
-
-							<div class="reads-content">
-								<span class="reads-book">0</span>
-							</div>
-						</div>
-
-						<div class="user-container">
-							<div class="icon-user">
-								<img src="/media/icons/user-icon.png" alt="" />
-							</div>
-
-							<div class="user-content">
-								<span class="user-login">Mi cuenta</span>
-							</div>
-						</div>
-					</div>
+		<header>
+			<div class="header-container">
+				<div class="logo-header-container">
+					<img src="/media/logos/bookfix-black-logo.png" alt="" />
 				</div>
-			</header>
-		</div>
+
+				<button id="toggle-sidebar" class="icon-menu">&#9776;</button>
+
+				<aside class="sidebar">
+					<nav>
+						<h2>BOOKFIX</h2>
+						<ul>
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="favoritos.html">Categorías</a></li>
+							<li><a href="favoritos.html">Favoritos</a></li>
+							<li><a href="leidos.html">Leídos</a></li>
+							<li><a href="perfil.html">Mi perfil</a></li>
+							<li><a href="login.html">Cerrar sesión</a></li>
+						</ul>
+					</nav>
+				</aside>
+			</div>
+		</header>
 
 		<main>
-			<!--CATEGORIES-->
-			<section class="categories">
-				<nav>
-					<div class="categories-container">
-						<button class="ficcion-btn open-all-books">Ficción</button>
-						<button class="fantasy-btn">Fantasía</button>
-						<button class="romance-btn">Romance</button>
-						<button class="terror-btn">Terror</button>
-						<button class="self-help-btn">Autoayuda</button>
-						<button class="history-btn">Historia</button>
-						<button class="cook-btn">Cocina</button>
-					</div>
-				</nav>
-			</section>
+			<div class="main-content">
+				<!--CATEGORIES-->
+				<!-- <section class="categories">
+				<div class="categories-container">
+					<button class="ficcion-btn open-all-books">Ficción</button>
+					<button class="fantasy-btn">Fantasía</button>
+					<button class="romance-btn">Romance</button>
+					<button class="terror-btn">Terror</button>
+					<button class="self-help-btn">Autoayuda</button>
+					<button class="history-btn">Historia</button>
+					<button class="cook-btn">Cocina</button>
+				</div>
+			</section> -->
 
-			<section>
-				<div id="books-container"></div>
-			</section>
+				<!-- BOOK'S SECTION -->
+				<section class="books-section container">
+					<h3 class="category-title">LIBROS</h3>
+					<div class="title-catalog-container"></div>
+					<div class="books-container"></div>
+				</section>
 
-			<!-- BOOK'S SECTION -->
-			<section class="books-section container">
-				<h3 class="category-title">LIBROS</h3>
-				<div class="title-catalog-container"></div>
-				<div class="books-container"></div>
-			</section>
+				<section>
+					<div id="books-container"></div>
+				</section>
 
-			<!-- FAVS SECTION -->
-			<!-- <section class="fav-container container dont-show"></section> -->
+				<!-- FAVS SECTION -->
+				<!-- <section class="fav-container container dont-show"></section> -->
 
-			<!-- READ SECTION -->
-			<!-- <section class="reads-container container dont-show"></section> -->
+				<!-- READ SECTION -->
+				<!-- <section class="reads-container container dont-show"></section> -->
 
-			<!-- PENDING BOOKS -->
-			<!-- <section class="pending-container container dont-show"></section> -->
+				<!-- PENDING BOOKS -->
+				<!-- <section class="pending-container container dont-show"></section> -->
+			</div>
 		</main>
 
 		<!-- <footer>
