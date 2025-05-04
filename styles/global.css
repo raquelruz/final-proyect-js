@@ -182,6 +182,10 @@ body .dont-show {
 	transform: translateX(0);
 }
 
+.sidebar.show {
+	left: 0;
+}
+
 .sidebar h2 {
 	padding: 20px;
 	font-size: 30px;
@@ -437,13 +441,17 @@ body .dont-show {
 }
 
 /*-------------- CATEGORIES -------------- */
-.categories-container {
+.categories-container,
+.recommendations-section,
+.books-section {
 	width: 100%;
 
 	padding: var(--spacing-xl);
 }
 
-.categories-container h4 {
+.categories-container h4,
+.recommendations-section h4,
+.books-section h4 {
 	font-size: 22px;
 }
 
@@ -495,7 +503,7 @@ body .dont-show {
 
 	border: 1px solid #e7e7e7;
 	border-radius: var(--radius-card);
-	width: 30%;
+	width: 100%;
 }
 
 .book-card img {
@@ -511,11 +519,14 @@ body .dont-show {
 	justify-content: space-between;
 
 	gap: 20px;
-	padding: var(--spacing-s);
+	padding: var(--spacing-m);
 }
 
 .book-buttons button {
-	font-size: 10px;
+	font-size: 14px;
 
-	background-color: var(--primary-color-btn);
+	background-color: transparent;
+	color: var(--primary-color-btn);
+	border: 2px solid var(--primary-color-btn);
+	border-radius: var(--radius-button);
 }
