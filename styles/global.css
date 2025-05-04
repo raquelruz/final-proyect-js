@@ -10,7 +10,7 @@ html {
 
 html,
 body {
-	font-family: "Roboto", "Poppins", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+	font-family: "Mulish", "Roboto", "Poppins", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -63,7 +63,7 @@ ul {
 	--contrast-color: #eae6d7;
 	--secondary-contrast-color: #dad5be;
 	--light-gray: #e7e7e7;
-	--primary-color-btn: #faa275;
+	--primary-color-btn: #1C3F3A;
 
 	--font-size-html: 14px;
 
@@ -168,7 +168,7 @@ body .dont-show {
 
 	top: 0;
 	left: 0;
-	width: 70%;
+	width: 50%;
 	height: 100%;
 
 	background-color: #FFF;
@@ -184,9 +184,15 @@ body .dont-show {
 
 .sidebar h2 {
 	padding: 20px;
+	font-size: 30px;
 }
 
-.sidebar li {
+.sidebar a {
+	font-size: 20px;
+}
+
+.sidebar li,
+.sidebar h5 {
 	padding: 10px 20px;
 }
 
@@ -211,6 +217,8 @@ body .dont-show {
 .icon-style {
 	width: 10%;
 }
+
+/* SEARCH */
 
 .search-container {
 	display: flex;
@@ -247,7 +255,7 @@ body .dont-show {
 	pointer-events: none;
 }
 
-
+/* BOOKS SECTIONS*/
 .favs-books-container,
 .reads-books-container,
 .user-container {
@@ -301,14 +309,22 @@ body .dont-show {
 .logout-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: end;
 
 	background-color: var(--contrast-color);
 }
 
 #logout-btn {
-	background-color: var(--primary-color-btn);
-	border-radius: 4px;
+	background-color: #FFF;
+
+	border: 2px solid var(--primary-color-btn);
+	border-radius: 8px;
+	color: var(--primary-color-btn);
+
+	padding: 10px;
+}
+
+#logout-btn:hover {
+	color: var(--primary-color-btn)
 }
 
 .login-bg-container {
@@ -349,9 +365,9 @@ body .dont-show {
 
 .login-section,
 .register-section {
-	background-color: #e7e7e7;
+	background-color: var(--secondary-contrast-color);
 	border-radius: var(--radius-card);
-	padding: var(--spacing-xl);
+	padding: 40px 30px;
 
 	width: 100%;
 }
@@ -399,13 +415,13 @@ body .dont-show {
 	border-radius: var(--radius-button);
 
 	background-color: var(--primary-color-btn);
-	color: rgb(83, 50, 33) 5;
+	color: #FFF;
 }
 
 .register-container,
 .account-exists {
 	text-align: center;
-	color: #ffffff;
+	color: #000;
 
 	padding: var(--spacing-xl);
 }
@@ -421,11 +437,17 @@ body .dont-show {
 }
 
 /*-------------- CATEGORIES -------------- */
-.categories {
+.categories-container {
 	width: 100%;
+
+	padding: var(--spacing-xl);
 }
 
-.categories-container {
+.categories-container h4 {
+	font-size: 22px;
+}
+
+/* .categories-container {
 	font-size: 16px;
 	display: flex;
 	flex-direction: row;
@@ -436,7 +458,7 @@ body .dont-show {
 	border-bottom: 1px solid;
 	overflow: auto;
 	background-color: var(--primary-color-btn);
-}
+} */
 
 .categories-container button {
 	display: flex;

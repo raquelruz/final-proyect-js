@@ -8,6 +8,12 @@
 
 		<link rel="stylesheet" href="styles/index.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+			rel="stylesheet"
+		/>
 
 		<title>Bookix. Tu biblioteca personal.</title>
 	</head>
@@ -24,13 +30,18 @@
 				<aside class="sidebar">
 					<nav>
 						<h2>BOOKFIX</h2>
+						<h5> MENU </h5>
+						
 						<ul>
 							<li><a href="index.html">Inicio</a></li>
 							<li><a href="favoritos.html">Categorías</a></li>
 							<li><a href="favoritos.html">Favoritos</a></li>
 							<li><a href="leidos.html">Leídos</a></li>
 							<li><a href="perfil.html">Mi perfil</a></li>
-							<li><a href="login.html">Cerrar sesión</a></li>
+
+							<hr>
+
+							<li><a href="login.html" id="logout-btn">Cerrar sesión</a></li>
 						</ul>
 					</nav>
 				</aside>
@@ -53,17 +64,18 @@
 				</section>
 
 				<!--CATEGORIES-->
-				<!-- <section class="categories">
+				<section class="recommendations">
+					<div class="recommendations-container">
+						<h4>RECOMENDACIONES</h4>
+					</div>
+				</section>
+
+				<!--CATEGORIES-->
+				<section class="categories">
 				<div class="categories-container">
-					<button class="ficcion-btn open-all-books">Ficción</button>
-					<button class="fantasy-btn">Fantasía</button>
-					<button class="romance-btn">Romance</button>
-					<button class="terror-btn">Terror</button>
-					<button class="self-help-btn">Autoayuda</button>
-					<button class="history-btn">Historia</button>
-					<button class="cook-btn">Cocina</button>
+					<h4>CATEGORIAS</h4>
 				</div>
-			</section> -->
+			</section>
 
 				<!-- BOOK'S SECTION -->
 				<section class="books-section container">
