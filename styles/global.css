@@ -153,6 +153,15 @@ body .dont-show {
 .header-container {
 	background-color: var(--contrast-color);
 }
+
+.logo-header-container {
+	width: 30%;
+}
+
+.logo-header-container img {
+	width: 100%;
+}
+
 /* SIDEBAR */
 .sidebar {
 	position: fixed;
@@ -199,57 +208,45 @@ body .dont-show {
 	transition: margin-left 0.3s ease-in-out;
 }
 
-/* .header-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-
-	background-color: var(--contrast-color);
-} */
-
-.logo-header-container {
-	width: 30%;
-}
-
-.logo-header-container img {
-	width: 100%;
-}
-
-.main-content {
-	margin-left: 0;
-	width: 100%;
-}
-
 .icon-style {
 	width: 10%;
 }
 
 .search-container {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	justify-content: center;
 
+	background-color: var(--contrast-color);
+	
 	width: 100%;
-	padding: var(--spacing-m);
+	padding: 20px 40px;
 }
 
 .search-container input {
-	width: 100%;
-	padding: var(--spacing-s);
+	width: 90%;
+	padding-left: 2.5rem;
+	padding-right: 0.5rem;
+	height: 2.5rem;
+	border: none;
 	border-radius: var(--radius-card);
 }
 
-.search-container form {
+.search-content {
+	position: relative;
 	width: 100%;
-
-	display: flex;
+	padding: 10px 0;
 }
 
-.search-btn {
-	border-radius: var(--radius-card);
-
-	background-color: var(--primary-color-btn);
+.search-icon {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	color: #888;
+	pointer-events: none;
 }
+
 
 .favs-books-container,
 .reads-books-container,
