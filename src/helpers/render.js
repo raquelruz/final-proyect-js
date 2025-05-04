@@ -8,7 +8,7 @@ export const renderBooks = (books) => {
 		const bookCard = document.createElement("div");
 		bookCard.classList.add("book-card");
 
-        const id = book.key;
+		const id = book.key;
 		const title = book.title || "Titulo no disponible";
 		const author = book.author_name ? book.author_name.join(", ") : "Autor desconocido";
 		const year = book.first_publish_year || "Año no disponible";
@@ -49,7 +49,11 @@ export const renderBooks = (books) => {
 			}
 		});
 
-		bookCard.append(favBtn, readBtn);
+		const buttonsContainer = document.createElement("div");
+		buttonsContainer.classList.add("book-buttons");
+		buttonsContainer.append(favBtn, readBtn);
+
+		bookCard.appendChild(buttonsContainer);
 		booksContainer.appendChild(bookCard);
 	});
 };
