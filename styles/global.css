@@ -443,15 +443,15 @@ body .dont-show {
 /*-------------- CATEGORIES -------------- */
 .categories-container,
 .recommendations-section,
-.books-section {
+.books-section,
+.other-languages-section,
+.top-rated-section {
 	width: 100%;
 
 	padding: var(--spacing-xl);
 }
 
-.categories-container h4,
-.recommendations-section h4,
-.books-section h4 {
+.category-title {
 	font-size: 22px;
 }
 
