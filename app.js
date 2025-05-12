@@ -7,7 +7,7 @@ import {
 	getBooksByGenre,
 	getGenresFromBooks,
 } from "./src/components/api.js";
-import { getFavorites } from "./src/utils/storage.js";
+import { getFavorites, getRead } from "./src/utils/storage.js";
 import { renderBooksSection, renderBooks } from "./src/helpers/render.js";
 
 export let books = [];
@@ -70,31 +70,49 @@ document.addEventListener("DOMContentLoaded", async () => {
 		});
 	}
 
-	// Menú - favoritos
-	const favoritesMenuItem = document.getElementById("show-favorites");
+	// MENÚ - FAVORITOS Y LEIDOS
+	const hideAllSections = () => {
+		document.querySelectorAll(".section").forEach((section) => (section.style.display = "none"));
+	};
 
-	if (favoritesMenuItem) {
-		favoritesMenuItem.addEventListener("click", () => {
-			const favoriteBooksIds = getFavorites();
+	const showFavorites = () => {
+		hideAllSections();
 
-			if (!favoriteBooksIds || favoriteBooksIds.length === 0) {
-				alert("No tienes libros favoritos.");
-				return;
-			}
+		const favoriteBooksIds = getFavorites();
+		if (favoriteBooksIds.length === 0) {
+			alert("No tienes libros favoritos.");
+			return;
+		}
 
-			const favoriteBooks = books.filter((book) => favoriteBooksIds.includes(book.key));
+		const favoriteBooks = books.filter((book) => favoriteBooksIds.includes(book.key));
+		renderBooks(favoriteBooks);
 
-			document.querySelectorAll(".section").forEach((section) => (section.style.display = "none"));
+		document.getElementById("books-container").style.display = "block";
+	};
 
-			const booksContainer = document.getElementById("books-container");
-			if (booksContainer) {
-				booksContainer.style.display = "block";
-				renderBooks(favoriteBooks);
-			}
+	
+	const showReadBooks = () => {
+		hideAllSections(); 
 
-			// console.log("IDs favoritos:", favoriteBooksIds);
-			// console.log("Todos los libros:", books);
-			// console.log("Filtrados:", favoriteBooks);
-		});
+		const readBooksIds = getRead();
+		if (readBooksIds.length === 0) {
+			alert("No tienes libros leídos.");
+			return;
+		}
+
+		const readBooks = books.filter((book) => readBooksIds.includes(book.key));
+		renderBooks(readBooks);
+
+		document.getElementById("books-container").style.display = "block"; 
+	};
+
+	const favoriteMenuItem = document.getElementById("show-favorites");
+	if (favoriteMenuItem) {
+		favoriteMenuItem.addEventListener("click", showFavorites);
+	}
+
+	const readMenuItem = document.getElementById("show-read");
+	if (readMenuItem) {
+		readMenuItem.addEventListener("click", showReadBooks);
 	}
 });

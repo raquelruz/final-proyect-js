@@ -6,7 +6,7 @@ const saveToStorage = (key, data) => {
 	localStorage.setItem(key, JSON.stringify(data));
 };
 
-const favoritesKey = 'favorites';
+const favoritesKey = "favorites";
 
 export const saveFavorite = (bookId) => {
 	let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
@@ -28,7 +28,7 @@ export const isFavorite = (bookId) => {
 };
 
 export const getFavorites = () => {
-	return JSON.parse(localStorage.getItem('favorites')) || [];
+	return JSON.parse(localStorage.getItem("favorites")) || [];
 };
 
 export const getFavoriteIds = () => getFromStorage("favorites");
@@ -38,17 +38,17 @@ export const filterFavorites = (books) => {
 	return books.filter((book) => favs.includes(book.key));
 };
 
-
 export const isRead = (id) => {
 	const readList = getFromStorage("read");
 	return readList.includes(id);
 };
 
-export const saveRead = (id) => {
-	const readList = getFromStorage("read");
-	if (!readList.includes(id)) {
-		readList.push(id);
-		saveToStorage("read", readList);
+export const saveRead = (bookId) => {
+	let readBooks = JSON.parse(localStorage.getItem("readBooks")) || [];
+
+	if (!readBooks.includes(bookId)) {
+		readBooks.push(bookId);
+		localStorage.setItem("readBooks", JSON.stringify(readBooks));
 	}
 };
 
@@ -56,6 +56,11 @@ export const removeRead = (id) => {
 	let readList = getFromStorage("read");
 	readList = readList.filter((read) => read !== id);
 	saveToStorage("read", readList);
+};
+
+export const getRead = () => {
+	const readBooks = JSON.parse(localStorage.getItem("readBooks")) || [];
+	return readBooks;
 };
 
 export const getReadIds = () => getFromStorage("read");
