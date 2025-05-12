@@ -10,12 +10,18 @@ import {
 import { getFavorites, getRead } from "./src/utils/storage.js";
 import { renderBooksSection, renderBooks } from "./src/helpers/render.js";
 
+/**
+ * Variable global que contendrá todos los libros cargados desde la API
+ */
 export let books = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-	console.log("JavaScript funcionando y DOM cargado");
+	// console.log("JavaScript funcionando y DOM cargado");
 
-	// Comprobación de usuario
+	// ------------ CONTROL DE USUARIO LOGUEADO ------------
+	/**
+	 * Comprueba si hay un usuario logueado, si no, redirige al login
+	 */
 	const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 	if (!currentUser) {
 		window.location.href = "login.html";
@@ -27,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		window.location.href = "login.html";
 	});
 
-	// Menú
+	// ------------ MENÚ LATERAL ------------
 	const menuBtn = document.querySelector(".icon-menu");
 	const sidebar = document.querySelector(".sidebar");
 	if (menuBtn && sidebar) {
@@ -36,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		});
 	}
 
-	// Buscador
+	// ------------ BUSCADOR ------------
 	const searchBtn = document.getElementById("search-btn");
 	const searchInput = document.getElementById("search-input");
 	if (searchBtn && searchInput) {
@@ -47,7 +53,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 		});
 	}
 
-	// Cargar todos los libros
+	// ------------ CARGAR LIBROS AL INICIO ------------
+	/**
+	 * Obtiene todos los libros desde la API
+	 */
 	books = await getDataFromApi();
 
 	if (books?.length > 0) {
@@ -70,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		});
 	}
 
-	// MENÚ - FAVORITOS Y LEIDOS
+	// ------------ SECCIONES DEL MENÚ: FAVORITOS Y LEÍDOS ------------
 	const hideAllSections = () => {
 		document.querySelectorAll(".section").forEach((section) => (section.style.display = "none"));
 	};
