@@ -1,4 +1,14 @@
 import { renderBooks, renderBooksSection } from "../helpers/render.js";
+import {
+	saveFavorite,
+	removeFavorite,
+	isFavorite,
+	saveRead,
+	removeRead,
+	isRead,
+	filterFavorites,
+	filterRead
+} from "../utils/storage.js"
 
 export const getDataFromApi = async (query = "libros") => {
 	try {
@@ -20,7 +30,7 @@ export const getDataFromApi = async (query = "libros") => {
 	}
 }
 
-getDataFromApi();
+// getDataFromApi();
 
 export const getGenresFromBooks = (books) => {
 	const genresSet = new Set();
@@ -58,7 +68,13 @@ export const getRandomBooks = (books, count = 10) => {
 };
 
 export const getTopRatedBooks = (books) => {
-    return books.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating);
+    const filtered = books.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating);
+	const lastElements = books.slice(-4);
+
+	if (filtered.length) {
+		return filtered;
+	}
+		return lastElements;
 };
 
 export const getBooksByLanguage = (books, language = "Spanish") => {
@@ -67,4 +83,20 @@ export const getBooksByLanguage = (books, language = "Spanish") => {
 
 export const getBooksByGenre = (books, genre) => {
     return books.filter(book => book.genre && book.genre.includes(genre));
+}
+
+export const toggleFavorite = (bookId) => {
+	if (isFavorite(bookId)) {
+		removeFavorite(bookId);
+	} else {
+		saveFavorite(bookId);
+	}
+}
+
+export const toggleRead = (bookId) => {
+	if (isRead(bookId)) {
+		removeRead(bookId);
+	} else {
+		saveRead(bookId);
+	}
 }

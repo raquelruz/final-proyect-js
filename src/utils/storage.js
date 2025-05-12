@@ -44,3 +44,16 @@ export const removeRead = (id) => {
 	saveToStorage("read", readList);
 };
 
+export const getFavoriteIds = () => getFromStorage("favorites");
+
+export const getReadIds = () => getFromStorage("read");
+
+export const filterFavorites = (books) => {
+	const favs = getFromStorage("favorites");
+	return books.filter(book => favs.includes(book.key));
+};
+
+export const filterRead = (books) => {
+	const readList = getFromStorage("read");
+	return books.filter(book => readList.includes(book.key));
+};

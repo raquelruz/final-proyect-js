@@ -8,6 +8,8 @@ export const renderBooks = (books) => {
 };
 
 export const renderBooksSection = (books, containerId) => {
+	console.log(books);
+	console.log(containerId);
 	const sectionContainer = document.getElementById(containerId);
 
 	if (!sectionContainer) return;

@@ -8,7 +8,11 @@ import {
 	getGenresFromBooks,
 } from "./src/components/api.js";
 
+import { getFavoriteIds } from "./src/utils/storage.js";
+
 import { renderBooksSection } from "./src/helpers/render.js";
+
+export let books = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
 	console.log("JavaScript funcionando y DOM cargado");
@@ -17,13 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 	if (currentUser) {
-		const header = document.createElement("div");
-		header.classList.add("logout-container");
-
-		header.innerHTML = `
-			<button id="logout-btn">Cerrar sesión</button>
-		`;
-		document.body.prepend(header);
 
 		document.getElementById("logout-btn").addEventListener("click", () => {
 			localStorage.removeItem("currentUser");
@@ -60,9 +57,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 	}
 
 	// Secciones al inicio
-	const books = await getDataFromApi("fantasía");
+	books = await getDataFromApi();
 
-	if (books.length > 0) {
+	if (books?.length > 0) {
 		renderBooksSection(getRandomBooks(books, 4), "recommendations-section");
 		renderBooksSection(getTopRatedBooks(books).slice(0, 4), "top-rated-section");
 		renderBooksSection(getBooksByLanguage(books).slice(0, 4), "other-languages-section");
@@ -75,15 +72,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 			const containerId = genre.toLowerCase().replace(/\s+/g, "-") + "-section";
 
-			// Crear el contenedor dinámicamente si no existe
 			let container = document.getElementById(containerId);
 			if (!container) {
 				container = document.createElement("div");
 				container.id = containerId;
-				document.body.appendChild(container); // o en algún wrapper específico
+				document.body.appendChild(container); 
 			}
 
 			renderBooksSection(booksByGenre.slice(0, 6), containerId);
 		});
 	}
+
+	const favoritesBtn = document.getElementById("ver-favoritos");
+	if (!favoritesBtn) return;
+
+	favoritesBtn.addEventListener("click", async () => {
+		const allBooks = await getDataFromApi("libros");
+		const favoriteIds = getFavoriteIds();
+		const favoriteBooks = allBooks.filter(book => favoriteIds.includes(book.key));
+
+		const favoritesSection = document.getElementById("favs-section");
+		if (favoritesSection) {
+			renderBooksSection(favoriteBooks, "fav-section");
+			favoriteBooks.scrollIntoView({ behavior: "smooth"});
+		}
+	})
 });
