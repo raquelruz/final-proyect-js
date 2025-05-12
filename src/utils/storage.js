@@ -1,4 +1,4 @@
-const getFromStorage = (key) => {
+export const getFromStorage = (key) => {
 	return JSON.parse(localStorage.getItem(key)) || [];
 };
 
@@ -6,24 +6,38 @@ const saveToStorage = (key, data) => {
 	localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const saveFavorite = (id) => {
-	const favs = getFromStorage("favorites");
-	if (!favs.includes(id)) {
-		favs.push(id);
-		saveToStorage("favorites", favs);
+const favoritesKey = 'favorites';
+
+export const saveFavorite = (bookId) => {
+	let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
+	if (!favorites.includes(bookId)) {
+		favorites.push(bookId);
+		localStorage.setItem(favoritesKey, JSON.stringify(favorites));
 	}
 };
 
-export const removeFavorite = (id) => {
-	let favs = getFromStorage("favorites");
-	favs = favs.filter((fav) => fav !== id);
-	saveToStorage("favorites", favs);
+export const removeFavorite = (bookId) => {
+	let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
+	favorites = favorites.filter((id) => id !== bookId);
+	localStorage.setItem(favoritesKey, JSON.stringify(favorites));
 };
 
-export const isFavorite = (id) => {
-	const favs = getFromStorage("favorites");
-	return favs.includes(id);
+export const isFavorite = (bookId) => {
+	const favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
+	return favorites.includes(bookId);
 };
+
+export const getFavorites = () => {
+	return JSON.parse(localStorage.getItem('favorites')) || [];
+};
+
+export const getFavoriteIds = () => getFromStorage("favorites");
+
+export const filterFavorites = (books) => {
+	const favs = getFromStorage("favorites");
+	return books.filter((book) => favs.includes(book.key));
+};
+
 
 export const isRead = (id) => {
 	const readList = getFromStorage("read");
@@ -44,16 +58,9 @@ export const removeRead = (id) => {
 	saveToStorage("read", readList);
 };
 
-export const getFavoriteIds = () => getFromStorage("favorites");
-
 export const getReadIds = () => getFromStorage("read");
-
-export const filterFavorites = (books) => {
-	const favs = getFromStorage("favorites");
-	return books.filter(book => favs.includes(book.key));
-};
 
 export const filterRead = (books) => {
 	const readList = getFromStorage("read");
-	return books.filter(book => readList.includes(book.key));
+	return books.filter((book) => readList.includes(book.key));
 };

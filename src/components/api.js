@@ -7,8 +7,8 @@ import {
 	removeRead,
 	isRead,
 	filterFavorites,
-	filterRead
-} from "../utils/storage.js"
+	filterRead,
+} from "../utils/storage.js";
 
 export const getDataFromApi = async (query = "libros") => {
 	try {
@@ -28,7 +28,7 @@ export const getDataFromApi = async (query = "libros") => {
 		console.error("Hubo un error:", error.message);
 		return [];
 	}
-}
+};
 
 // getDataFromApi();
 
@@ -63,27 +63,27 @@ export const getBooksByQuery = async (query, containerId) => {
 // getBooksByQuery();
 
 export const getRandomBooks = (books, count = 10) => {
-    const shuffled = [...books].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+	const shuffled = [...books].sort(() => 0.5 - Math.random());
+	return shuffled.slice(0, count);
 };
 
 export const getTopRatedBooks = (books) => {
-    const filtered = books.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating);
+	const filtered = books.filter((book) => book.average_rating).sort((a, b) => b.average_rating - a.average_rating);
 	const lastElements = books.slice(-4);
 
 	if (filtered.length) {
 		return filtered;
 	}
-		return lastElements;
+	return lastElements;
 };
 
 export const getBooksByLanguage = (books, language = "Spanish") => {
-    return books.filter(book => book.language && book.language !== language);
-}
+	return books.filter((book) => book.language && book.language !== language);
+};
 
 export const getBooksByGenre = (books, genre) => {
-    return books.filter(book => book.genre && book.genre.includes(genre));
-}
+	return books.filter((book) => book.genre && book.genre.includes(genre));
+};
 
 export const toggleFavorite = (bookId) => {
 	if (isFavorite(bookId)) {
@@ -91,7 +91,7 @@ export const toggleFavorite = (bookId) => {
 	} else {
 		saveFavorite(bookId);
 	}
-}
+};
 
 export const toggleRead = (bookId) => {
 	if (isRead(bookId)) {
@@ -99,4 +99,4 @@ export const toggleRead = (bookId) => {
 	} else {
 		saveRead(bookId);
 	}
-}
+};
