@@ -52,7 +52,11 @@ export const filterFavorites = (books) => {
 };
 
 
+/**
+ * Clave utilizada para almacenar libros leídos en localStorage
+ */
 let STORAGE_KEY_READ = "readBooks";
+
 /**
  * Guarda un libro en la lista de leídos (usa clave "readBooks")
  * @param {*} id 
