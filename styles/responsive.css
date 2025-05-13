@@ -9,6 +9,10 @@
 		--container-width: 85%;
 	}
 
+	.logo-header-container img {
+		width: 40%;
+	}
+
 	.sidebar {
 		width: 30%;
 	}

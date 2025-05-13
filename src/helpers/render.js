@@ -1,3 +1,4 @@
+import { getBooksByQuery } from "../components/api.js";
 import { isFavorite, saveFavorite, removeFavorite, isRead, saveRead, removeRead } from "../utils/storage.js";
 
 export const renderBooks = (books) => {
@@ -142,5 +143,36 @@ export const renderReadBooks = (books) => {
 		if (bookCard) {
 			readContainer.appendChild(bookCard);
 		}
+	});
+};
+
+export const renderGenresSection = (genres) => {
+	const genresContainer = document.getElementById("genres-container");
+
+	if (!genresContainer) return;
+
+	genresContainer.innerHTML = "";
+
+	if (genres.length === 0) {
+		genresContainer.innerHTML = "<p>No se encontraron géneros disponibles.</p>";
+		return;
+	}
+
+	genres.forEach((genre) => {
+		const genreSection = document.createElement("div");
+		genreSection.classList.add("genre-section");
+
+		const genreTitle = document.createElement("h3");
+		genreTitle.textContent = genre;
+		genreSection.appendChild(genreTitle);
+
+		const booksByGenre = books.filter((book) => book.subject && book.subject.includes(genre));
+
+		booksByGenre.forEach((book) => {
+			const bookCard = createBookCard(book);
+			genreSection.appendChild(bookCard);
+		});
+
+		genresContainer.appendChild(genreSection);
 	});
 };

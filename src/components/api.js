@@ -32,20 +32,6 @@ export const getDataFromApi = async (query = "libros") => {
 
 // getDataFromApi();
 
-export const getGenresFromBooks = (books) => {
-	const genresSet = new Set();
-
-	books.forEach((book) => {
-		if (book.subject) {
-			book.subject.forEach((subject) => {
-				genresSet.add(subject);
-			});
-		}
-	});
-
-	return Array.from(genresSet);
-};
-
 export const getBooksByQuery = async (query, containerId) => {
 	try {
 		const response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&language=spa`);
@@ -79,10 +65,6 @@ export const getTopRatedBooks = (books) => {
 
 export const getBooksByLanguage = (books, language = "Spanish") => {
 	return books.filter((book) => book.language && book.language !== language);
-};
-
-export const getBooksByGenre = (books, genre) => {
-	return books.filter((book) => book.genre && book.genre.includes(genre));
 };
 
 export const toggleFavorite = (bookId) => {

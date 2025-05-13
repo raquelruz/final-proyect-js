@@ -3,12 +3,15 @@ import {
 	getBooksByQuery,
 	getRandomBooks,
 	getTopRatedBooks,
-	getBooksByLanguage,
-	getBooksByGenre,
-	getGenresFromBooks,
+	getBooksByLanguage
 } from "./src/components/api.js";
 import { getFavorites, getRead } from "./src/utils/storage.js";
-import { renderBooksSection, renderBooks, renderFavoriteBooks, renderReadBooks } from "./src/helpers/render.js";
+import {
+	renderBooksSection,
+	renderBooks,
+	renderFavoriteBooks,
+	renderReadBooks
+} from "./src/helpers/render.js";
 
 /**
  * Variable global que contendrá todos los libros cargados desde la API
@@ -66,20 +69,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 		renderBooksSection(getRandomBooks(books, 8), "recommendations-section");
 		renderBooksSection(getTopRatedBooks(books).slice(0, 8), "top-rated-section");
 		renderBooksSection(getBooksByLanguage(books).slice(0, 8), "other-languages-section");
-
-		const genres = getGenresFromBooks(books);
-		genres.forEach((genre) => {
-			const booksByGenre = books.filter((book) => book.subject && book.subject.includes(genre));
-			const containerId = genre.toLowerCase().replace(/\s+/g, "-") + "-section";
-
-			let container = document.getElementById(containerId);
-			if (!container) {
-				container = document.createElement("div");
-				container.id = containerId;
-				document.body.appendChild(container);
-			}
-			renderBooksSection(booksByGenre.slice(0, 6), containerId);
-		});
 	}
 
 	// ------------ SECCIONES DEL MENÚ: FAVORITOS Y LEÍDOS ------------
@@ -112,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	 * Muestra la sección de libros leídos
 	 */
 	const showReadBooks = () => {
-		hideAllSections(); 
+		hideAllSections();
 
 		const readBooksIds = getRead();
 		if (readBooksIds.length === 0) {
@@ -123,9 +112,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 		const readBooks = books.filter((book) => readBooksIds.includes(book.key));
 		renderReadBooks(readBooks);
 
-		document.getElementById("read-section").style.display = "block"; 
+		document.getElementById("read-section").style.display = "block";
 	};
-
 
 	/**
 	 * Asocia los botones del menú lateral a sus respectivas funciones
