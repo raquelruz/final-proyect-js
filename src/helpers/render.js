@@ -42,7 +42,9 @@ const createBookCard = (book) => {
 	const author = book.author_name ? book.author_name.join(", ") : "Autor desconocido";
 	const year = book.first_publish_year || "Año no disponible";
 	const coverId = book.cover_i ? book.cover_i : null;
-	const imageUrl = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg` : "./media/images/imagen-no-disponible.jpg";
+	const imageUrl = coverId
+		? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`
+		: "./media/images/imagen-no-disponible.jpg";
 
 	bookCard.innerHTML = `
 		<img src="${imageUrl}" alt="Portada de ${title}" class="book-image">

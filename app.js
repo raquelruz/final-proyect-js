@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 	books = await getDataFromApi();
 
 	if (books?.length > 0) {
-		renderBooksSection(getRandomBooks(books, 4), "recommendations-section");
-		renderBooksSection(getTopRatedBooks(books).slice(0, 4), "top-rated-section");
-		renderBooksSection(getBooksByLanguage(books).slice(0, 4), "other-languages-section");
+		renderBooksSection(getRandomBooks(books, 8), "recommendations-section");
+		renderBooksSection(getTopRatedBooks(books).slice(0, 8), "top-rated-section");
+		renderBooksSection(getBooksByLanguage(books).slice(0, 8), "other-languages-section");
 
 		const genres = getGenresFromBooks(books);
 		genres.forEach((genre) => {
