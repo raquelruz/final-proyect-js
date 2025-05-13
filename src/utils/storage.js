@@ -52,39 +52,39 @@ export const filterFavorites = (books) => {
 };
 
 
+let STORAGE_KEY_READ = "readBooks";
 /**
  * Guarda un libro en la lista de leídos (usa clave "readBooks")
  * @param {*} id 
  * @returns 
  */
 export const saveRead = (bookId) => {
-	let readBooks = JSON.parse(localStorage.getItem("readBooks")) || [];
+	let readBooks = getFromStorage(STORAGE_KEY_READ);
 
 	if (!readBooks.includes(bookId)) {
 		readBooks.push(bookId);
-		localStorage.setItem("readBooks", JSON.stringify(readBooks));
+		saveToStorage(STORAGE_KEY_READ, readBooks);
 	}
 };
 
 export const isRead = (id) => {
-	const readList = getFromStorage("read");
-	return readList.includes(id);
+	const readBooks = getFromStorage(STORAGE_KEY_READ);
+	return readBooks.includes(id);
 };
 
 export const removeRead = (id) => {
-	let readList = getFromStorage("read");
-	readList = readList.filter((read) => read !== id);
-	saveToStorage("read", readList);
+	let readBooks = getFromStorage(STORAGE_KEY_READ);
+	readBooks = readBooks.filter((bookId) => bookId !== id);
+	saveToStorage(STORAGE_KEY_READ, readBooks);
 };
 
 export const getRead = () => {
-	const readBooks = JSON.parse(localStorage.getItem("readBooks")) || [];
-	return readBooks;
+	return getFromStorage(STORAGE_KEY_READ);
 };
 
-export const getReadIds = () => getFromStorage("read");
+export const getReadIds = () => getFromStorage(STORAGE_KEY_READ);
 
 export const filterRead = (books) => {
-	const readList = getFromStorage("read");
-	return books.filter((book) => readList.includes(book.key));
+	const readBooks = getFromStorage(STORAGE_KEY_READ);
+	return books.filter((book) => readBooks.includes(book.key));
 };

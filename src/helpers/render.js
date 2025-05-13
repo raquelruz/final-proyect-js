@@ -59,6 +59,13 @@ const createBookCard = (book) => {
 		if (isFavorite(id)) {
 			removeFavorite(id);
 			favBtn.textContent = "Añadir a favoritos";
+
+			if (
+				window.location.hash === "#favoritos" ||
+				document.getElementById("favorites-container").offsetParent !== null
+			) {
+				favBtn.closest(".book-card")?.remove();
+			}
 		} else {
 			saveFavorite(id);
 			favBtn.textContent = "Eliminar de favoritos";
@@ -67,10 +74,19 @@ const createBookCard = (book) => {
 
 	const readBtn = document.createElement("button");
 	readBtn.textContent = isRead(id) ? "Marcar como no leído" : "Marcar como leído";
+
 	readBtn.addEventListener("click", () => {
 		if (isRead(id)) {
 			removeRead(id);
 			readBtn.textContent = "Marcar como leído";
+
+			const isReadSection =
+				window.location.hash === "#leidos" ||
+				document.getElementById("read-section")?.style.display === "block";
+
+			if (isReadSection) {
+				readBtn.closest(".book-card")?.remove();
+			}
 		} else {
 			saveRead(id);
 			readBtn.textContent = "Marcar como no leído";

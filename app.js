@@ -8,7 +8,7 @@ import {
 	getGenresFromBooks,
 } from "./src/components/api.js";
 import { getFavorites, getRead } from "./src/utils/storage.js";
-import { renderBooks, renderBooksSection, renderReadBooks, renderFavoriteBooks } from "./src/helpers/render.js";
+import { renderBooksSection, renderBooks, renderFavoriteBooks, renderReadBooks } from "./src/helpers/render.js";
 
 /**
  * Variable global que contendrá todos los libros cargados desde la API
@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 		return;
 	}
 
+	/**
+	 * Permite cerrar el usuario eliminando el usuario actual del localStorage
+	 */
 	document.getElementById("logout-btn").addEventListener("click", () => {
 		localStorage.removeItem("currentUser");
 		window.location.href = "login.html";
@@ -55,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	// ------------ CARGAR LIBROS AL INICIO ------------
 	/**
-	 * Obtiene todos los libros desde la API
+	 * Obtiene todos los libros al cargar la página
 	 */
 	books = await getDataFromApi();
 
@@ -80,10 +83,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 	}
 
 	// ------------ SECCIONES DEL MENÚ: FAVORITOS Y LEÍDOS ------------
+	/**
+	 * Oculta las secciones antes de mostrar una nueva
+	 */
 	const hideAllSections = () => {
 		document.querySelectorAll(".section").forEach((section) => (section.style.display = "none"));
 	};
 
+	/**
+	 * Muestra la sección de libros favoritos
+	 */
 	const showFavorites = () => {
 		hideAllSections();
 
@@ -99,7 +108,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 		document.getElementById("favorites-section").style.display = "block";
 	};
 
-	
+	/**
+	 * Muestra la sección de libros leídos
+	 */
 	const showReadBooks = () => {
 		hideAllSections(); 
 
@@ -115,6 +126,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 		document.getElementById("read-section").style.display = "block"; 
 	};
 
+
+	/**
+	 * Asocia los botones del menú lateral a sus respectivas funciones
+	 */
 	const favoriteMenuItem = document.getElementById("show-favorites");
 	if (favoriteMenuItem) {
 		favoriteMenuItem.addEventListener("click", showFavorites);
