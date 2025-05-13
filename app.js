@@ -8,7 +8,7 @@ import {
 	getGenresFromBooks,
 } from "./src/components/api.js";
 import { getFavorites, getRead } from "./src/utils/storage.js";
-import { renderBooksSection, renderBooks, renderFavoriteBooks } from "./src/helpers/render.js";
+import { renderBooks, renderBooksSection, renderReadBooks, renderFavoriteBooks } from "./src/helpers/render.js";
 
 /**
  * Variable global que contendrá todos los libros cargados desde la API
@@ -110,9 +110,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 		}
 
 		const readBooks = books.filter((book) => readBooksIds.includes(book.key));
-		renderBooks(readBooks);
+		renderReadBooks(readBooks);
 
-		document.getElementById("books-container").style.display = "block"; 
+		document.getElementById("read-section").style.display = "block"; 
 	};
 
 	const favoriteMenuItem = document.getElementById("show-favorites");

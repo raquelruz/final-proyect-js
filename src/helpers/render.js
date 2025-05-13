@@ -106,3 +106,25 @@ export const renderFavoriteBooks = (books) => {
 		}
 	});
 };
+
+export const renderReadBooks = (books) => {
+	const readContainer = document.getElementById("read-container");
+	if (!readContainer) {
+		console.error("No se encontró el contenedor de libros leídos.");
+		return;
+	}
+
+	readContainer.innerHTML = "";
+
+	if (books.length === 0) {
+		readContainer.innerHTML = "<p>No tienes libros leídos.</p>";
+		return;
+	}
+
+	books.forEach((book) => {
+		const bookCard = createBookCard(book);
+		if (bookCard) {
+			readContainer.appendChild(bookCard);
+		}
+	});
+};
