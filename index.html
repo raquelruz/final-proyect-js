@@ -33,15 +33,15 @@
 						<h5>MENU</h5>
 
 						<ul>
-							<li><a href="index.html">Inicio</a></li>
-							<li><a href="#">Categorías</a></li>
-							<li><a href="#" id="show-favorites">Favoritos</a></li>							</li>
-							<li><a href="#" id="show-read">Leídos</a></li>
-							<li><a href="perfil.html">Mi perfil</a></li>
+							<a href="index.html">Inicio</a>
+							<a href="#">Categorías</a>
+							<a href="#" id="show-favorites">Favoritos</a>
+							<a href="#" id="show-read">Leídos</a>
+							<a href="perfil.html">Mi perfil</a>
 
 							<hr />
 
-							<li><a href="login.html" id="logout-btn">Cerrar sesión</a></li>
+							<a href="login.html" id="logout-btn">Cerrar sesión</a>
 						</ul>
 					</nav>
 				</aside>
@@ -72,8 +72,9 @@
 
 					<!--CATEGORIES-->
 					<section class="section">
+						<div class="categories-container">
 							<h4 class="category-title">CATEGORIAS</h4>
-						<div class="categories-container"></div>
+						</div>
 					</section>
 
 					<!-- MEJOR VALORADOS -->
@@ -85,17 +86,18 @@
 					<!-- OTROS IDIOMAS -->
 					<section class="section">
 						<h4 class="category-title">OTROS IDIOMAS</h4>
-						<div class="other-languages-container "id="other-languages-section"></div>
+						<div class="other-languages-container" id="other-languages-section"></div>
 					</section>
 
 					<!-- FAVS SECTION -->
-					<section id="fav-section">
-						<div id="show-favorites dont-show"></div>
+					<section class="section" id="favorites-section" style="display: none">
+						<h4 class="category-title">MIS FAVORITOS</h4>
+						<div id="favorites-container" class="book-list"></div>
 					</section>
 
 					<!-- READ SECTION -->
 					<section class="reads-section">
-						<div class="show-read dont-show"></div>
+						<div class="show-read"></div>
 					</section>
 				</div>
 			</div>
