@@ -559,3 +559,42 @@ body .dont-show {
 	border: 2px solid var(--primary-color-btn);
 	border-radius: var(--radius-button);
 }
+
+/*-------------- ADVANCED SEARCH -------------- */
+#advanced-search {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--contrast-color);
+
+	gap: 20px;
+	padding: 0 20px;
+}
+
+.advanced-search-container {
+	background-color: var(--secondary-contrast-color);
+
+	border-radius: 4px;
+	padding: 20px;
+}
+.advanced-search-container form {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 5px;
+}
+
+.advanced-search-container input {
+	display: flex;
+	flex-direction: column;
+
+	gap: 20px;
+}
+
+.advanced-search-container button {
+	color: var(--secondary-contrast-color);
+	background-color: var(--primary-color-btn);
+	border-radius: var(--radius-button);
+}
