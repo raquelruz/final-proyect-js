@@ -176,3 +176,4 @@ export const renderGenresSection = (genres) => {
 		genresContainer.appendChild(genreSection);
 	});
 };
+

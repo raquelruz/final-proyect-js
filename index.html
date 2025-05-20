@@ -33,7 +33,7 @@
 						<h5>MENU</h5>
 
 						<ul>
-							<a href="index.html">Inicio</a>
+							<a href="index.html">Descubrir</a>
 							<a href="#">Categorías</a>
 							<a href="#" id="show-favorites">Favoritos</a>
 							<a href="#" id="show-read">Leídos</a>
@@ -70,6 +70,12 @@
 						<div class="recommendations-container" id="recommendations-section"></div>
 					</section>
 
+					<!--RECOMENDACIONES-->
+					<section class="section">
+						<h4 class="category-title">CATEGORIAS</h4>
+						<div class="category-container" id="category-list"></div>
+					</section>
+
 					<!-- MEJOR VALORADOS -->
 					<section class="section">
 						<h4 class="category-title">MEJOR VALORADOS</h4>
@@ -94,6 +100,31 @@
 						<div id="read-container" class="book-list"></div>
 					</section>
 				</div>
+
+				<section id="advanced-search">
+					<h3>Búsqueda avanzada</h3>
+					<div class="advanced-search-container">
+						<form id="advanced-search-form">
+							<input type="text" id="title" placeholder="Título" />
+							<input type="text" id="author" placeholder="Autor" />
+							<input type="text" id="subject" placeholder="Género / Categoría" />
+							<input type="text" id="year" placeholder="Año de publicación" />
+							<select name="language" id="language">
+								<option value="">Idioma</option>
+								<option value="spa">Español</option>
+								<option value="eng">Inglés</option>
+								<option value="fre">Francés</option>
+							</select>
+							<select id="sort">
+								<option value="">Ordenar por...</option>
+								<option value="title">Título</option>
+								<option value="author_name">Autor</option>
+								<option value="first_publish_year">Año</option>
+							</select>
+							<button type="submit">Buscar</button>
+						</form>
+					</div>
+				</section>
 			</div>
 		</main>
 
