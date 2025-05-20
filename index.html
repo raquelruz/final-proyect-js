@@ -34,11 +34,11 @@
 
 						<ul>
 							<a href="index.html">Descubrir</a>
+							<a href="#advanced-search">Búsqueda Avanzada</a>
 							<a href="#">Categorías</a>
 							<a href="#" id="show-favorites">Favoritos</a>
 							<a href="#" id="show-read">Leídos</a>
 							<a href="perfil.html">Mi perfil</a>
-
 							<hr />
 
 							<a href="login.html" id="logout-btn">Cerrar sesión</a>
@@ -107,16 +107,15 @@
 						<form id="advanced-search-form">
 							<input type="text" id="title" placeholder="Título" />
 							<input type="text" id="author" placeholder="Autor" />
-							<input type="text" id="subject" placeholder="Género / Categoría" />
-							<input type="text" id="year" placeholder="Año de publicación" />
-							<select name="language" id="language">
+							<input type="text" id="subject" placeholder="Categoría o Género" />
+							<input type="number" id="year" placeholder="Año" />
+							<select id="language">
 								<option value="">Idioma</option>
 								<option value="spa">Español</option>
 								<option value="eng">Inglés</option>
-								<option value="fre">Francés</option>
 							</select>
 							<select id="sort">
-								<option value="">Ordenar por...</option>
+								<option value="">Ordenar por</option>
 								<option value="title">Título</option>
 								<option value="author_name">Autor</option>
 								<option value="first_publish_year">Año</option>

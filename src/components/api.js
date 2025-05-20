@@ -48,6 +48,42 @@ export const getBooksByQuery = async (query, containerId) => {
 
 // getBooksByQuery();
 
+export async function advancedSearch({ title, author, subject, year, language, sort }) {
+	const baseUrl = "https://openlibrary.org/search.json";
+	const params = new URLSearchParams();
+
+	if (title) params.append("title", title);
+	if (author) params.append("author", author);
+	if (subject) params.append("subject", subject);
+	if (year) params.append("first_publish_year", year);
+	if (language) params.append("language", language);
+
+	params.append("limit", "30");
+
+	const url = `${baseUrl}?${params.toString()}`;
+
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+
+		let books = data.docs;
+
+		// Ordenar si se seleccionó una opción
+		if (sort) {
+			books.sort((a, b) => {
+				const valueA = a[sort] || "";
+				const valueB = b[sort] || "";
+				return valueA > valueB ? 1 : -1;
+			});
+		}
+
+		return books;
+	} catch (error) {
+		console.error("Error en búsqueda avanzada:", error);
+		return [];
+	}
+}
+
 export const getRandomBooks = (books, count = 10) => {
 	const shuffled = [...books].sort(() => 0.5 - Math.random());
 	return shuffled.slice(0, count);
@@ -82,4 +118,3 @@ export const toggleRead = (bookId) => {
 		saveRead(bookId);
 	}
 };
-
