@@ -6,7 +6,13 @@ import {
 	getBooksByLanguage,
 	advancedSearch,
 } from "./src/components/api.js";
-import { getFavorites, getRead } from "./src/utils/storage.js";
+import {
+	getFavorites,
+	getRead,
+	saveSearchToHistory,
+	getSearchHistory,
+	clearSearchHistory,
+} from "./src/utils/storage.js";
 import { renderBooksSection, renderBooks, renderFavoriteBooks, renderReadBooks } from "./src/helpers/render.js";
 
 /**
@@ -135,20 +141,45 @@ document.addEventListener("DOMContentLoaded", async () => {
 		const language = document.querySelector("#language").value;
 		const sort = document.querySelector("#sort").value;
 
-		const results = await advancedSearch({ title, author, subject, year, language, sort });
+		const searchParams = { title, author, subject, year, language, sort };
 
-		hideAllSections();
+		saveSearchToHistory(searchParams);
 
-		const resultsSection = document.getElementById("advanced-results");
-		if (resultsSection) {
-			resultsSection.style.display = "block"; 
-		}
-
-		const booksContainer = document.getElementById("books-container");
-		if (booksContainer) {
-			booksContainer.innerHTML = "";
-		}
-
+		const results = await advancedSearch(searchParams);
 		renderBooks(results);
+		renderSearchHistory(); // Actualiza historial
 	});
+
+	// ------------ HISTORIAL DE BÚSQUEDA ------------
+	function renderSearchHistory() {
+		const container = document.querySelector("#search-history");
+		const history = getSearchHistory();
+
+		container.innerHTML = "";
+
+		if (history.length === 0) {
+			container.innerHTML = "<p>No hay búsquedas guardadas.</p>";
+			return;
+		}
+
+		history.forEach((item) => {
+			const btn = document.createElement("button");
+			btn.textContent = `${item.title || "Sin título"} - ${item.author || "Autor desconocido"}`;
+			btn.classList.add("history-btn");
+
+			btn.addEventListener("click", async () => {
+				const results = await advancedSearch(item);
+				renderBooks(results);
+			});
+
+			container.appendChild(btn);
+		});
+	}
+
+	document.querySelector("#clear-history-btn").addEventListener("click", () => {
+		clearSearchHistory();
+		renderSearchHistory();
+	});
+
+	renderSearchHistory();
 });

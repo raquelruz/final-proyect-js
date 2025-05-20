@@ -1,6 +1,6 @@
 /**
  * Obtiene datos desde localStorage
- * @param {*} key 
+ * @param {*} key
  * @returns un array vacío si no hay dados guardados con esa clave
  */
 export const getFromStorage = (key) => {
@@ -11,7 +11,6 @@ const saveToStorage = (key, data) => {
 	localStorage.setItem(key, JSON.stringify(data));
 };
 
-
 /**
  * Clave utilizada para almacenar favoritos en localStorage
  */
@@ -19,7 +18,7 @@ const favoritesKey = "favorites";
 
 /**
  * Guarda un libro en la lista de favoritos (si no está ya guardado)
- * @param {*} bookId 
+ * @param {*} bookId
  */
 export const saveFavorite = (bookId) => {
 	let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
@@ -51,7 +50,6 @@ export const filterFavorites = (books) => {
 	return books.filter((book) => favs.includes(book.key));
 };
 
-
 /**
  * Clave utilizada para almacenar libros leídos en localStorage
  */
@@ -59,8 +57,8 @@ let STORAGE_KEY_READ = "readBooks";
 
 /**
  * Guarda un libro en la lista de leídos (usa clave "readBooks")
- * @param {*} id 
- * @returns 
+ * @param {*} id
+ * @returns
  */
 export const saveRead = (bookId) => {
 	let readBooks = getFromStorage(STORAGE_KEY_READ);
@@ -91,4 +89,27 @@ export const getReadIds = () => getFromStorage(STORAGE_KEY_READ);
 export const filterRead = (books) => {
 	const readBooks = getFromStorage(STORAGE_KEY_READ);
 	return books.filter((book) => readBooks.includes(book.key));
+};
+
+// GUARDAR RESULTADOS BUSQUEDA AVANZADA
+const HISTORY_KEY = "search-history";
+
+export const saveSearchToHistory = (searchParams) => {
+	const history = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+
+	const exists = history.find((item) => JSON.stringify(item) === JSON.stringify(searchParams));
+
+	if (!exists) {
+		history.unshift(searchParams);
+		if (history.length > 10) history.pop();
+		localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+	}
+};
+
+export const getSearchHistory = () => {
+	return JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+};
+
+export const clearSearchHistory = () => {
+	localStorage.removeItem(HISTORY_KEY);
 };
