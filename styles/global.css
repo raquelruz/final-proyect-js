@@ -600,7 +600,7 @@ body .dont-show {
 }
 
 #latest-searches {
-	background-color: var(--contrast-color);
+	background-color: var(--secondary-contrast-color);
 	padding: 20px;
 }
 
@@ -628,8 +628,7 @@ body .dont-show {
 }
 
 #clear-history-btn {
-	width: 60%;
-
+	width: 20%;
 	background-color: var(--contrast-color);
 	border-radius: var(--radius-button);
 }
