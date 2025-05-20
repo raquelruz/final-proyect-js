@@ -29,6 +29,10 @@
 	.book-card img {
 		width: 100%;
 	}
+
+	.footer-links-container {
+		justify-content: space-between;
+	}
 }
 
 /* Media query para dispositivos DESKTOP (mayores a 1024px) */
@@ -36,6 +40,15 @@
 	:root {
 		--bg-color: beige;
 		--container-width: 80%;
+	}
+
+	.logo-container,
+	.logo-container-register {
+		width: 30%;
+	}
+
+	.logo-header-container {
+		width: 50%;
 	}
 
 	/*---------------- SIDEBAR ----------------*/
@@ -92,6 +105,14 @@
 	.book-card img {
 		width: 100%;
 	}
+
+	.footer-links-container a {
+		font-size: 18px;
+	}
+
+		.category-title h4 {
+	font-size: 30px;
+}
 }
 
 /* Media query para dispositivos DESKTOP XXL (mayores a 1440px) */
@@ -100,4 +121,17 @@
 		--bg-color: aquamarine;
 		--container-width: 75%;
 	}
+
+	.logo-container,
+	.logo-container-register {
+		width: 20%;
+	}
+
+	.footer-links-container a {
+		font-size: 30px;
+	}
+
+	.category-title h4 {
+	font-size: 40px;
+}
 }
