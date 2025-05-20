@@ -33,9 +33,9 @@
 						<h5>MENU</h5>
 
 						<ul>
-							<a href="index.html">Descubrir</a>
+							<a href="index.html" id>Descubrir</a>
 							<a href="#advanced-search">Búsqueda Avanzada</a>
-							<a href="#">Categorías</a>
+							<a href="#genre-sections">Categorías</a>
 							<a href="#" id="show-favorites">Favoritos</a>
 							<a href="#" id="show-read">Leídos</a>
 							<a href="perfil.html">Mi perfil</a>
@@ -63,27 +63,33 @@
 					</div>
 				</section>
 
+				<section>
+				<div class="footer-links-container">
+					<a href="#" data-subject="fiction">Ficción</a>
+					<a href="#" data-subject="fantasy">Fantasía</a>
+					<a href="#" data-subject="romance">Romance</a>
+					<a href="#" data-subject="horror">Terror</a>
+					<a href="#" data-subject="self-help">Autoayuda</a>
+					<a href="#" data-subject="history">Historia</a>
+					<a href="#" data-subject="cooking">Cocina</a>
+				</div>
+			</section>
+
 				<div id="books-container">
 					<!--RECOMENDACIONES-->
-					<section class="section">
+					<section class="section" id="recommendations">
 						<h4 class="category-title">RECOMENDACIONES</h4>
 						<div class="recommendations-container" id="recommendations-section"></div>
 					</section>
 
-					<!--RECOMENDACIONES-->
-					<section class="section">
-						<h4 class="category-title">CATEGORIAS</h4>
-						<div class="category-container" id="category-list"></div>
-					</section>
-
 					<!-- MEJOR VALORADOS -->
-					<section class="section">
+					<section class="section" id="top-rated">
 						<h4 class="category-title">MEJOR VALORADOS</h4>
 						<div class="top-rated-container" id="top-rated-section"></div>
 					</section>
 
 					<!-- OTROS IDIOMAS -->
-					<section class="section">
+					<section class="section" id="other-languages">
 						<h4 class="category-title">OTROS IDIOMAS</h4>
 						<div class="other-languages-container" id="other-languages-section"></div>
 					</section>
@@ -98,6 +104,12 @@
 					<section class="section" id="read-section" style="display: none">
 						<h4 class="category-title">MIS LIBROS LEÍDOS</h4>
 						<div id="read-container" class="book-list"></div>
+					</section>
+
+					<!-- GÉNEROS -->
+					<section class="section" id="genre-sections">
+						<h4 class="category-title">GÉNEROS</h4>
+						<div id="genre-sections-container"></div>
 					</section>
 				</div>
 
@@ -135,18 +147,10 @@
 			</div>
 		</main>
 
-		<!-- <footer>
+		<footer>
 			<section>
-				<div class="footer-links">
-					<a href="">Ficción</a>
-					<a href="">Fantasía</a>
-					<a href="">Romance</a>
-					<a href="">Terror</a>
-					<a href="">Autoayuda</a>
-					<a href="">Historia</a>
-					<a href="">Cocina</a>
-				</div>
+				
 			</section>
-		</footer> -->
+		</footer>
 	</body>
 </html>

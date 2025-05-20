@@ -84,6 +84,19 @@ export async function advancedSearch({ title, author, subject, year, language, s
 	}
 }
 
+export const searchBySubject = async (subject) => {
+	const url = `https://openlibrary.org/subjects/${subject}.json?limit=20`;
+
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+		return data.works || []; // los libros están en 'works'
+	} catch (error) {
+		console.error("Error en búsqueda por subject:", error);
+		return [];
+	}
+};
+
 export const getRandomBooks = (books, count = 10) => {
 	const shuffled = [...books].sort(() => 0.5 - Math.random());
 	return shuffled.slice(0, count);

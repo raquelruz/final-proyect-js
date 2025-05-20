@@ -1,16 +1,21 @@
 import { getBooksByQuery } from "../components/api.js";
 import { isFavorite, saveFavorite, removeFavorite, isRead, saveRead, removeRead } from "../utils/storage.js";
 
-export const renderBooks = (books) => {
-	const booksContainer = document.getElementById("books-container");
+export const renderBooks = (books, container = null) => {
+	const booksContainer = container || document.getElementById("books-container");
 	if (!booksContainer) return;
+
+	booksContainer.innerHTML = "";
 
 	if (books.length === 0) {
 		booksContainer.innerHTML = "<p>No se encontraron libros para mostrar</p>";
 		return;
 	}
 
-	books.forEach((book) => booksContainer.appendChild(createBookCard(book)));
+	books.forEach((book) => {
+		const bookCard = createBookCard(book);
+		if (bookCard) booksContainer.appendChild(bookCard);
+	});
 };
 
 export const renderBooksSection = (books, containerId) => {
@@ -176,4 +181,3 @@ export const renderGenresSection = (genres) => {
 		genresContainer.appendChild(genreSection);
 	});
 };
-

@@ -5,6 +5,7 @@ import {
 	getTopRatedBooks,
 	getBooksByLanguage,
 	advancedSearch,
+	searchBySubject,
 } from "./src/components/api.js";
 import {
 	getFavorites,
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	});
 
 	// ------------ HISTORIAL DE BÚSQUEDA ------------
-	function renderSearchHistory() {
+	const renderSearchHistory = () => {
 		const container = document.querySelector("#search-history");
 		const history = getSearchHistory();
 
@@ -174,7 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 			container.appendChild(btn);
 		});
-	}
+	};
 
 	document.querySelector("#clear-history-btn").addEventListener("click", () => {
 		clearSearchHistory();
@@ -182,4 +183,54 @@ document.addEventListener("DOMContentLoaded", async () => {
 	});
 
 	renderSearchHistory();
+});
+
+// ------------ GÉNEROS ------------
+const genreContainer = document.querySelector("#genre-sections-container");
+
+document.querySelectorAll(".footer-links-container a").forEach((link) => {
+	link.addEventListener("click", async (e) => {
+		e.preventDefault();
+
+		const subject = e.target.dataset.subject;
+		const displayName = e.target.textContent;
+
+		if (!subject) return;
+
+		const results = await searchBySubject(subject);
+
+		document.getElementById("recommendations").style.display = "none";
+		document.getElementById("top-rated").style.display = "none";
+		document.getElementById("other-languages").style.display = "none";
+
+		genreContainer.style.display = "block";
+
+		document.querySelectorAll(".genre-section").forEach((section) => {
+			section.style.display = "none";
+		});
+
+		let section = document.querySelector(`#genre-${subject}`);
+
+		if (!section) {
+			section = document.createElement("section");
+			section.classList.add("genre-section", subject.toLowerCase());
+			section.id = `genre-${subject}`;
+
+			const title = document.createElement("h2");
+			title.textContent = displayName;
+			section.appendChild(title);
+
+			const booksContainer = document.createElement("div");
+			booksContainer.classList.add("books-genre-container");
+			section.appendChild(booksContainer);
+
+			genreContainer.appendChild(section);
+		}
+
+		section.style.display = "block";
+
+		const booksContainer = section.querySelector(".books-genre-container");
+		booksContainer.innerHTML = "";
+		renderBooks(results, booksContainer);
+	});
 });
