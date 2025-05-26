@@ -35,7 +35,7 @@
 						<ul>
 							<a href="index.html" id>Descubrir</a>
 							<a href="#advanced-search">Búsqueda Avanzada</a>
-							<a href="#genre-sections">Géneros</a>
+							<a href="#genre-links">Géneros</a>
 							<a href="#" id="show-favorites">Favoritos</a>
 							<a href="#" id="show-read">Leídos</a>
 							<a href="#" id="show-profile">Mi perfil</a>
@@ -65,7 +65,7 @@
 				</section>
 
 				<section>
-					<div class="footer-links-container">
+					<div id="genre-links" class="footer-links-container">
 						<a href="#" data-subject="fiction">Ficción</a>
 						<a href="#" data-subject="fantasy">Fantasía</a>
 						<a href="#" data-subject="romance">Romance</a>
@@ -117,6 +117,33 @@
 						<div id="genre-sections-container"></div>
 					</section>
 				</div>
+
+				<section id="profile-section" class="section">
+					<div class="profile-container">
+						<div class="profile-header">
+							<h2>Mi Perfil</h2>
+						</div>
+						<div class="profile-info">
+							<p><strong>Nombre:</strong> <span id="profile-name"></span></p>
+							<p><strong>Email:</strong> <span id="profile-email"></span></p>
+							<p><strong>Registrado el:</strong> <span id="profile-registered"></span></p>
+						</div>
+						<div class="profile-stats">
+							<div class="profile-stat">
+								<h3 id="fav-count">0</h3>
+								<p>Favoritos</p>
+							</div>
+							<div class="profile-stat">
+								<h3 id="read-count">0</h3>
+								<p>Leídos</p>
+							</div>
+						</div>
+					</div>
+
+					<div style="text-align: center; margin-top: 2rem">
+						<button id="edit-profile-btn" class="btn">Editar Perfil</button>
+					</div>
+				</section>
 
 				<section id="advanced-search">
 					<h3>Búsqueda avanzada</h3>
@@ -174,5 +201,21 @@
 				<p>© 2025 Bookfix. Tu Biblioteca Online. Todos los derechos reservados.</p>
 			</div>
 		</footer>
+
+		<div id="edit-profile-modal" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" id="close-edit-modal">&times;</span>
+				<h2>Editar Perfil</h2>
+				<form id="edit-profile-form">
+					<label for="edit-name">Nombre</label>
+					<input type="text" id="edit-name" required />
+
+					<label for="edit-email">Email</label>
+					<input type="email" id="edit-email" required />
+
+					<button type="submit" class="btn">Guardar Cambios</button>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

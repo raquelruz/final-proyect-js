@@ -125,6 +125,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 	};
 
 	/**
+	 *
+	 * @returns muestra la sección "Mi perfil"
+	 */
+	const showProfile = () => {
+		hideAllSections();
+
+		const profileSection = document.getElementById("profile-section");
+		if (!profileSection) return;
+
+		const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+		if (!currentUser) {
+			alert("No estás logueado.");
+			window.location.href = "login.html";
+			return;
+		}
+
+		document.getElementById("profile-name").textContent = currentUser.name || "Usuario";
+		document.getElementById("profile-email").textContent = currentUser.email || "Sin email";
+		document.getElementById("profile-registered").textContent = currentUser.registeredDate || "Fecha desconocida";
+
+		const favoriteBooksIds = getFavorites();
+		const readBooksIds = getRead();
+
+		document.getElementById("fav-count").textContent = favoriteBooksIds.length;
+		document.getElementById("read-count").textContent = readBooksIds.length;
+
+		profileSection.style.display = "block";
+	};
+
+	/**
 	 * Asocia los botones del menú lateral a sus respectivas funciones
 	 */
 	const favoriteMenuItem = document.getElementById("show-favorites");
@@ -135,6 +165,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const readMenuItem = document.getElementById("show-read");
 	if (readMenuItem) {
 		readMenuItem.addEventListener("click", showReadBooks);
+	}
+
+	const profileMenuItem = document.getElementById("show-profile");
+	if (profileMenuItem) {
+		profileMenuItem.addEventListener("click", showProfile);
 	}
 
 	// ------------ BUSQUEDA AVANZADA ------------
@@ -240,3 +275,49 @@ document.querySelectorAll(".footer-links-container a").forEach((link) => {
 		renderBooks(results, booksContainer);
 	});
 });
+
+// -------- MODAL: EDITAR PERFIL --------
+const editProfileBtn = document.getElementById("edit-profile-btn");
+const editModal = document.getElementById("edit-profile-modal");
+const closeEditModal = document.getElementById("close-edit-modal");
+const editForm = document.getElementById("edit-profile-form");
+
+if (editProfileBtn && editModal && closeEditModal && editForm) {
+	editProfileBtn.addEventListener("click", () => {
+		const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+		if (!currentUser) return;
+
+		document.getElementById("edit-name").value = currentUser.name || "";
+		document.getElementById("edit-email").value = currentUser.email || "";
+
+		editModal.style.display = "block";
+	});
+
+	closeEditModal.addEventListener("click", () => {
+		editModal.style.display = "none";
+	});
+
+	window.addEventListener("click", (e) => {
+		if (e.target === editModal) {
+			editModal.style.display = "none";
+		}
+	});
+
+	editForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		const updatedName = document.getElementById("edit-name").value.trim();
+		const updatedEmail = document.getElementById("edit-email").value.trim();
+
+		let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+		currentUser.name = updatedName;
+		currentUser.email = updatedEmail;
+
+		localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+		document.getElementById("profile-name").textContent = updatedName;
+		document.getElementById("profile-email").textContent = updatedEmail;
+
+		editModal.style.display = "none";
+		alert("Perfil actualizado correctamente.");
+	});
+}
