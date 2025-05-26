@@ -36,8 +36,8 @@
 	}
 
 	#clear-history-btn {
-	width: 30%;
-}
+		width: 30%;
+	}
 
 	.footer-links-container {
 		justify-content: space-between;
@@ -148,6 +148,37 @@
 
 	.sidebar {
 		width: 300px;
+	}
+
+	.book-card h3 {
+		font-size: 20px;
+	}
+
+	.book-card p {
+		font-size: 18px;
+	}
+
+	.book-buttons button {
+		font-size: 14px;
+	}
+
+	.advanced-search-container {
+	width: 20%;
+}
+
+	.advanced-search-container input,
+	.advanced-search-container select {
+		padding: 8px;
+		font-size: 16px;
+	}
+
+	.history-btn {
+		font-size: 18px;
+	}
+
+	#clear-history-btn {
+		width: 10%;
+		font-size: 18px;
 	}
 
 	.footer-links-container a {

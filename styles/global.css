@@ -590,7 +590,7 @@ body .dont-show {
 }
 
 .book-buttons button {
-	font-size: 14px;
+	font-size: 10px;
 
 	background-color: transparent;
 	color: var(--primary-color-btn);
@@ -624,7 +624,8 @@ body .dont-show {
 	padding: 5px;
 }
 
-.advanced-search-container input {
+.advanced-search-container input,
+.advanced-search-container select {
 	display: flex;
 	flex-direction: column;
 
