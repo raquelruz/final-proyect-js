@@ -52,13 +52,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 	}
 
 	// ------------ BUSCADOR ------------
-	const searchBtn = document.getElementById("search-btn");
+	const searchForm = document.getElementById("search-form");
 	const searchInput = document.getElementById("search-input");
-	if (searchBtn && searchInput) {
-		searchBtn.addEventListener("click", (e) => {
+
+	if (searchForm && searchInput) {
+		searchForm.addEventListener("submit", async (e) => {
 			e.preventDefault();
 			const query = searchInput.value.trim();
-			if (query) getDataFromApi(query);
+			if (query) {
+				const booksFound = await getDataFromApi(query);
+				document.querySelectorAll(".section").forEach((section) => (section.style.display = "none"));
+				document.getElementById("search-results-section").style.display = "block";
+				renderBooks(booksFound);
+			}
 		});
 	}
 

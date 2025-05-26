@@ -169,6 +169,7 @@ export const renderGenresSection = (genres) => {
 
 		const genreTitle = document.createElement("h3");
 		genreTitle.textContent = genre;
+		genreTitle.classList.add("category-title");
 		genreSection.appendChild(genreTitle);
 
 		const booksByGenre = books.filter((book) => book.subject && book.subject.includes(genre));

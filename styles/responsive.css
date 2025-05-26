@@ -9,8 +9,13 @@
 		--container-width: 85%;
 	}
 
+	.logo-header-container {
+		display: flex;
+		align-items: center;
+	}
+	
 	.logo-header-container img {
-		width: 40%;
+		width: 60%;
 	}
 
 	.sidebar {
@@ -48,7 +53,7 @@
 	}
 
 	.logo-header-container {
-		width: 50%;
+		width: 40%;
 	}
 
 	/*---------------- SIDEBAR ----------------*/
@@ -83,8 +88,9 @@
 	}
 
 	.sidebar a:hover {
-		background-color: #444;
-		padding-left: 10px;
+		background-color: #d8d8d8;
+
+		border-radius: 4px;
 	}
 
 	/* .main-content {
@@ -127,11 +133,15 @@
 		width: 20%;
 	}
 
+	.sidebar {
+		width: 300px;
+	}
+
 	.footer-links-container a {
-		font-size: 30px;
+		font-size: 24px;
 	}
 
 	.category-title h4 {
-	font-size: 40px;
+	font-size: 30px;
 }
 }

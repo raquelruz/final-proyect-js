@@ -55,9 +55,10 @@
 						<h3>Descubre</h3>
 
 						<div class="search-content">
-							<form>
+							<form id="search-form">
 								<input type="text" id="search-input" placeholder="Buscar..." />
 								<span class="search-icon"><i class="fas fa-search"></i></span>
+								<button type="submit" id="search-btn" class="search-btn">Buscar</button>
 							</form>
 						</div>
 					</div>
@@ -73,6 +74,11 @@
 						<a href="#" data-subject="history">Historia</a>
 						<a href="#" data-subject="cooking">Cocina</a>
 					</div>
+				</section>
+
+				<section id="search-results-section" class="section" style="display: none">
+					<h2>Resultados de la búsqueda</h2>
+					<div id="books-container"></div>
 				</section>
 
 				<div id="books-container">
@@ -108,7 +114,6 @@
 
 					<!-- GÉNEROS -->
 					<section class="section" id="genre-sections">
-						<h4 class="category-title">GÉNEROS</h4>
 						<div id="genre-sections-container"></div>
 					</section>
 				</div>
