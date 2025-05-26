@@ -35,6 +35,10 @@
 		width: 100%;
 	}
 
+	#clear-history-btn {
+	width: 30%;
+}
+
 	.footer-links-container {
 		justify-content: space-between;
 	}
@@ -121,9 +125,9 @@
 		font-size: 18px;
 	}
 
-		.category-title h4 {
-	font-size: 30px;
-}
+	.category-title h4 {
+		font-size: 30px;
+	}
 }
 
 /* Media query para dispositivos DESKTOP XXL (mayores a 1440px) */
@@ -131,6 +135,10 @@
 	:root {
 		--bg-color: aquamarine;
 		--container-width: 75%;
+	}
+
+	.logo-header-container img {
+		width: 30%;
 	}
 
 	.logo-container,
@@ -147,6 +155,6 @@
 	}
 
 	.category-title h4 {
-	font-size: 30px;
-}
+		font-size: 30px;
+	}
 }
