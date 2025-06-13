@@ -4,218 +4,68 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<script src="app.js" type="module" defer></script>
+		<!-- <script type="module" defer></script> -->
 
 		<link rel="stylesheet" href="styles/index.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+			integrity="sha512-yUXeS...tuHashAquí..."
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
 			rel="stylesheet"
 		/>
-
-		<title>Bookix. Tu biblioteca personal.</title>
+		<title>OposicionPN</title>
 	</head>
 
 	<body>
-		<header>
-			<div class="header-container">
-				<div class="logo-header-container">
-					<img src="/media/logos/bookfix-black-logo.png" alt="" />
-				</div>
+		<header class="hero">
+			<h1>OposicionPN</h1>
+			<p>
+				Test interactivos, temarios actualizados, estadísticas inteligentes y comunidad de apoyo. Todo lo que necesitas, en un solo lugar.
+			</p>
 
-				<button id="toggle-sidebar" class="icon-menu">&#9776;</button>
-
-				<aside class="sidebar">
-					<nav>
-						<h2>BOOKFIX</h2>
-						<h5>MENU</h5>
-
-						<ul>
-							<a href="index.html" id>Descubrir</a>
-							<a href="#advanced-search">Búsqueda Avanzada</a>
-							<a href="#genre-links">Géneros</a>
-							<a href="#" id="show-favorites">Favoritos</a>
-							<a href="#" id="show-read">Leídos</a>
-							<a href="#" id="show-profile">Mi perfil</a>
-							<hr />
-
-							<a href="login.html" id="logout-btn">Cerrar sesión</a>
-						</ul>
-					</nav>
-				</aside>
-			</div>
+            <button class="start-now-btn">Empieza ya</button>
 		</header>
 
 		<main>
-			<div class="main-content">
-				<section>
-					<div class="search-container">
-						<h3>Descubre</h3>
-
-						<div class="search-content">
-							<form id="search-form">
-								<input type="text" id="search-input" placeholder="Buscar..." />
-								<span class="search-icon"><i class="fas fa-search"></i></span>
-								<button type="submit" id="search-btn" class="search-btn">Buscar</button>
-							</form>
-						</div>
+			<section>
+				<div class="choose-us-container">
+					<div class="choose-us-content">
+						<h2>¿Por qué elegirnos?</h2>
+						<div class="choose-us-info">
+                            <p>Simulacros de examen actualizados</p>
+                            <p>Temario completo y organizado</p>
+                            <p>Estadísticas de tu evolución</p>
+                            <p>Consejos y motivación personalizada</p>
+                        </div>
 					</div>
-				</section>
-
-				<section>
-					<div id="genre-links" class="footer-links-container">
-						<a href="#" data-subject="fiction">Ficción</a>
-						<a href="#" data-subject="fantasy">Fantasía</a>
-						<a href="#" data-subject="romance">Romance</a>
-						<a href="#" data-subject="horror">Terror</a>
-						<a href="#" data-subject="self-help">Autoayuda</a>
-						<a href="#" data-subject="history">Historia</a>
-						<a href="#" data-subject="cooking">Cocina</a>
-					</div>
-				</section>
-
-				<section id="search-results-section" class="section" style="display: none">
-					<h2>Resultados de la búsqueda</h2>
-					<div id="books-container"></div>
-				</section>
-
-				<div id="books-container">
-					<!--RECOMENDACIONES-->
-					<section class="section" id="recommendations">
-						<h4 class="category-title">RECOMENDACIONES</h4>
-						<div class="recommendations-container" id="recommendations-section"></div>
-					</section>
-
-					<!-- MEJOR VALORADOS -->
-					<section class="section" id="top-rated">
-						<h4 class="category-title">MEJOR VALORADOS</h4>
-						<div class="top-rated-container" id="top-rated-section"></div>
-					</section>
-
-					<!-- OTROS IDIOMAS -->
-					<section class="section" id="other-languages">
-						<h4 class="category-title">OTROS IDIOMAS</h4>
-						<div class="other-languages-container" id="other-languages-section"></div>
-					</section>
-
-					<!-- FAVS SECTION -->
-					<section class="section" id="favorites-section" style="display: none">
-						<h4 class="category-title">MIS FAVORITOS</h4>
-						<div id="favorites-container" class="book-list"></div>
-					</section>
-
-					<!-- READ SECTION -->
-					<section class="section" id="read-section" style="display: none">
-						<h4 class="category-title">MIS LIBROS LEÍDOS</h4>
-						<div id="read-container" class="book-list"></div>
-					</section>
-
-					<!-- GÉNEROS -->
-					<section class="section" id="genre-sections">
-						<div id="genre-sections-container"></div>
-					</section>
 				</div>
+			</section>
 
-				<section id="profile-section" class="section">
-					<div class="profile-container">
-						<div class="profile-header">
-							<h2>Mi Perfil</h2>
-						</div>
-						<div class="profile-info">
-							<p><strong>Nombre:</strong> <span id="profile-name"></span></p>
-							<p><strong>Email:</strong> <span id="profile-email"></span></p>
-							<p><strong>Registrado el:</strong> <span id="profile-registered"></span></p>
-						</div>
-						<div class="profile-stats">
-							<div class="profile-stat">
-								<h3 id="fav-count">0</h3>
-								<p>Favoritos</p>
-							</div>
-							<div class="profile-stat">
-								<h3 id="read-count">0</h3>
-								<p>Leídos</p>
-							</div>
-						</div>
-					</div>
+            <section>
+                <div class="content-pn-container">
+                    <div class="content-pn-info">
+                        <h3>Temario oficial y actualizado</h3>
+                        <p>Accede a todo el contenido necesario para tu oposición, organizado por bloques y con recursos visuales.</p>
+                    </div>
 
-					<div style="text-align: center; margin-top: 2rem">
-						<button id="edit-profile-btn" class="btn">Editar Perfil</button>
-					</div>
-				</section>
+                    <div class="content-pn-info">
+                        <h3>Entrenamiento inteligente</h3>
+                        <p>Simulacros personalizados, estadísticas detalladas y seguimiento de tu evolución.</p>
+                    </div>
 
-				<section id="advanced-search">
-					<h3>Búsqueda avanzada</h3>
-					<div class="advanced-search-container">
-						<form id="advanced-search-form">
-							<input type="text" id="title" placeholder="Título" />
-							<input type="text" id="author" placeholder="Autor" />
-							<input type="text" id="subject" placeholder="Categoría o Género" />
-							<input type="number" id="year" placeholder="Año" />
-							<select id="language">
-								<option value="">Idioma</option>
-								<option value="spa">Español</option>
-								<option value="eng">Inglés</option>
-							</select>
-							<select id="sort">
-								<option value="">Ordenar por</option>
-								<option value="title">Título</option>
-								<option value="author_name">Autor</option>
-								<option value="first_publish_year">Año</option>
-							</select>
-							<button type="submit">Buscar</button>
-						</form>
-					</div>
-				</section>
-
-				<section id="latest-searches">
-					<h3>Últimas búsquedas</h3>
-					<div id="search-history"></div>
-					<div class="search-btn-container">
-						<button id="clear-history-btn">Borrar historial</button>
-					</div>
-				</section>
-			</div>
+                    <div class="content-pn-info">
+                        <h3>Comunidad y motivación</h3>
+                        <p>Comparte dudas, recibe apoyo y mantente motivado con otras personas que están en tu misma situación.</p>
+                    </div>
+                </div>
+            </section>
 		</main>
-
-		<footer>
-			<div class="footer-container">
-				<div class="footer-section about">
-					<h3>Bookix. Tu Biblioteca Online</h3>
-					<p>Encuentra tus libros favoritos y descubre nuevas lecturas con nuestra plataforma.</p>
-				</div>
-
-				<div class="footer-section social">
-					<h4>Síguenos</h4>
-					<div class="social-icons">
-						<a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-						<a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-						<a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="footer-bottom">
-				<p>© 2025 Bookfix. Tu Biblioteca Online. Todos los derechos reservados.</p>
-			</div>
-		</footer>
-
-		<div id="edit-profile-modal" class="modal">
-			<div class="modal-content">
-				<span class="close-modal" id="close-edit-modal">&times;</span>
-				<h2>Editar Perfil</h2>
-				<form id="edit-profile-form">
-					<label for="edit-name">Nombre</label>
-					<input type="text" id="edit-name" required />
-
-					<label for="edit-email">Email</label>
-					<input type="email" id="edit-email" required />
-
-					<button type="submit" class="btn">Guardar Cambios</button>
-				</form>
-			</div>
-		</div>
 	</body>
 </html>
