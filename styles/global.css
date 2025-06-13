@@ -162,7 +162,7 @@ body .dont-show {
 }
 
 .start-now-btn,
-.create-account-btn {
+.create-btn {
 	font-size: 16px;
 
 	background-color: #fff;
@@ -240,8 +240,9 @@ body .dont-show {
 	font-size: 20px;
 }
 
-/* REGISTER */
-.create-account-container {
+/* REGISTER & LOGIN */
+.create-account-container,
+.login-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -255,7 +256,8 @@ body .dont-show {
 	transition: background 0.5s ease;
 }
 
-.create-account-content {
+.create-account-content,
+.login-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -272,11 +274,13 @@ body .dont-show {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.create-account-form {
+.create-account-form,
+.login-form {
 	padding: 12px 0;
 }
 
-.create-account-content:hover {
+.create-account-content:hover,
+.login-content:hover {
 	transform: translateY(-4px);
 	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
@@ -288,6 +292,19 @@ body .dont-show {
 	gap: 12px;
 	width: 100%;
 	margin-bottom: 20px;
+}
+
+.create-account-content h1,
+.login-content h1 {
+	text-align: center;
+	margin-bottom: 24px;
+	font-weight: 700;
+	color: #1d4ed8;
+}
+
+.input-div label {
+	margin-bottom: 6px;
+	font-weight: 600;
 }
 
 .input-div input {
@@ -306,9 +323,11 @@ body .dont-show {
 	outline: none;
 }
 
-.create-account-btn {
+
+.create-account-btn,
+.login-btn {
 	font-size: 16px;
-    font-weight: 600;
+	font-weight: 600;
 
 	background-color: #1d4ed8;
 	color: white;
@@ -320,14 +339,27 @@ body .dont-show {
 
 	width: 100%;
 	padding: 12px 20px;
-    
+
 	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.create-account-btn:hover {
+.create-account-btn:hover,
+.login-btn:hover {
 	background-color: #1e40af;
 	transform: scale(1.02);
 }
+
+.login-register-container {
+	text-align: center;
+	margin-top: 20px;
+	color: #fff;
+}
+
+.login-register-container a {
+	color: #ffd700;
+	text-decoration: underline;
+}
+
 
 @keyframes fadeIn {
 	from {
