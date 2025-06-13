@@ -1,0 +1,97 @@
+<DOCTYPE html>
+	<html lang="es">
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+			<!-- <script src="app.js" type="module" defer></script> -->
+
+			<link rel="stylesheet" href="/styles/index.css" />
+			<link
+				rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+				integrity="sha512-yUXeS...tuHashAquí..."
+				crossorigin="anonymous"
+				referrerpolicy="no-referrer"
+			/>
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+			<link
+				href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+				rel="stylesheet"
+			/>
+			<title>OposicionPN</title>
+		</head>
+
+		<body>
+			<header class="header">
+				<div class="logo">Oposicion<span>PN</span></div>
+
+				<button id="toggle-sidebar" class="icon-menu">&#9776;</button>
+
+				<aside>
+					<nav class="nav">
+						<ul>
+							<li><a href="#">Inicio</a></li>
+							<li><a href="#">Tests</a></li>
+							<li><a href="#">Simulacros</a></li>
+							<li><a href="#">Psicotécnicos // Ortograma</a></li>
+							<li><a href="#">Inglés</a></li>
+							<li><a href="#">Nutrición y deporte</a></li>
+							<li><a href="#">Comunidad</a></li>
+
+							<hr />
+							<li><a href="#">Mi perfil</a></li>
+							<li><button class="logout-btn">Cerrar sesión</button></li>
+						</ul>
+					</nav>
+				</aside>
+			</header>
+			<main>
+				<section class="welcome">
+					<div class="welcome-container">
+						<h1>¡Hola, futur@ Policía Nacional! 👮‍♂️</h1>
+						<p>Prepárate con herramientas inteligentes, tests personalizados y sigue tu progreso.</p>
+
+						<a href="#" class="start-btn">Hacer un test ahora</a>
+					</div>
+				</section>
+
+				<section class="dashboard">
+					<div class="card">
+						<h2>Mi progreso 📈</h2>
+						<p>Has completado <span id="number-test">0</span> tests este mes.</p>
+						<p>Media de aciertos: <span id="percentage">0%</span></p>
+					</div>
+
+					<div class="card">
+						<h2>Últimos tests realizados 📝</h2>
+						<div class="last-tests"></div>
+
+						<a href="#">Ver historial completo</a>
+					</div>
+
+					<div class="card">
+						<h2>Consejo del día 💡</h2>
+						<div class="advice"></div>
+					</div>
+
+					<div class="card">
+						<h2>Recursos destacados 📚</h2>
+						<li><a href="#">Temario actualizado 2025 (PDF)</a></li>
+						<li><a href="#">Normativa sobre armas</a></li>
+						<li><a href="#">Psicotécnicos</a></li>
+					</div>
+
+					<div class="card community-card">
+						<div class="card-content">
+							<h2>Únete a la Comunidad 💬</h2>
+							<p>Comparte dudas, recursos y motivación con otros opositores como tú.</p>
+							<a href="#" class="card-button">Entrar al foro</a>
+						</div>
+					</div>
+				</section>
+			</main>
+		</body>
+	</html>
+</DOCTYPE>
